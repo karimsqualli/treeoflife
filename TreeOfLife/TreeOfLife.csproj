@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AD19135-8884-4792-A08C-4E4E70800414}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TreeOfLife</RootNamespace>
+    <AssemblyName>TreeOfLife</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\TreeOfLife\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Tree Of Life</ProductName>
+    <PublisherName>TOL prod</PublisherName>
+    <SuiteName>TOL</SuiteName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TreeOfLife.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TreeOfLife.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FC1B21664396D879F9651AC105CD4371AC6A0C59</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TreeOfLife_CléTemporaire.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BinAdmin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;ADMIN</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>..\..\BinAdmin\</OutputPath>
+    <DefineConstants>TRACE;ADMIN</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugUser|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BinUser\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;USER</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseUser|AnyCPU'">
+    <OutputPath>..\..\BinUser\</OutputPath>
+    <DefineConstants>TRACE;USER</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.WMPLib">
+      <HintPath>References\AxInterop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.WMPLib">
+      <HintPath>References\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>References\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VinceSoundPlayer">
+      <HintPath>..\..\References\VinceSoundPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="VinceToolbox">
+      <HintPath>..\..\References\VinceToolbox.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="GUI\CheckBoxNoPadding.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\ControlContainerInterface.cs" />
+    <Compile Include="GUI\Draw.cs" />
+    <Compile Include="GUI\LabelVerticalLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Resources.cs" />
+    <Compile Include="GUI\Theme.cs" />
+    <Compile Include="GUI\FormContainerDesc.cs" />
+    <Compile Include="GUI\ControlContainerInterfaceList.cs" />
+    <Compile Include="GUI\AnchorOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonContextualMenu.cs" />
+    <Compile Include="Controls\TaxonControlInterface.cs" />
+    <Compile Include="Controls\TaxonControlList.cs" />
+    <Compile Include="Controls\VignetteData.cs" />
+    <Compile Include="Controls\TaxonImageControlOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonImageControlStatic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonListImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonListImage.Designer.cs">
+      <DependentUpon>TaxonListImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaxonMultiCommentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonMultiCommentControl.Designer.cs">
+      <DependentUpon>TaxonMultiCommentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaxonMultiImageSoundControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonMultiImageSoundControl.Designer.cs">
+      <DependentUpon>TaxonMultiImageSoundControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ControlContainerSplitterDesc.cs" />
+    <Compile Include="Controls\TaxonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\FormContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormContainer.Designer.cs">
+      <DependentUpon>FormContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaxonImageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaxonImageControl.Designer.cs">
+      <DependentUpon>TaxonImageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaxonListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\ControlContainerSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\ControlContainerTabs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ControlContainerTabs.Designer.cs">
+      <DependentUpon>ControlContainerTabs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ControlContainerTabsDesc.cs" />
+    <Compile Include="GUI\ThemeFlat.cs" />
+    <Compile Include="Controls\VignetteDisplayParams.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\FileSystem.cs" />
+    <Compile Include="Helpers\MultiName.cs" />
+    <Compile Include="Localization\Language.cs" />
+    <Compile Include="Localization\Manager.cs" />
+    <Compile Include="Localization\UserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loggers\LogFile.cs" />
+    <Compile Include="Loggers\Logger.cs" />
+    <Compile Include="Loggers\LoggerParams.cs" />
+    <Compile Include="Loggers\Loggers.cs" />
+    <Compile Include="Loggers\LogMessageBox.cs" />
+    <Compile Include="Loggers\LogMessages.cs" />
+    <Compile Include="Maps\France.cs" />
+    <Compile Include="Maps\SvgTools.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="OTT\OTT.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaxonControls\TaxonGameHangman.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGameHangman.Designer.cs">
+      <DependentUpon>TaxonGameHangman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGameQuizz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGameQuizz.Designer.cs">
+      <DependentUpon>TaxonGameQuizz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\EditionTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\GraphPaintCircle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\InertiaMove.cs" />
+    <Compile Include="TaxonControls\TaxonGraphPanel\GraphMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\GraphOptions.cs" />
+    <Compile Include="TaxonControls\TaxonGraphPanel\GraphPaint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\GraphResources.cs" />
+    <Compile Include="TaxonControls\TaxonOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonOptions.Designer.cs">
+      <DependentUpon>TaxonOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonTags.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonTags.Designer.cs">
+      <DependentUpon>TaxonTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraph.Designer.cs">
+      <DependentUpon>TaxonGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDatas\TaxonComments.cs" />
+    <Compile Include="TaxonControls\FactoryOfTaxonControl.cs" />
+    <Compile Include="TaxonControls\TaxonAscendants.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonAscendants.designer.cs">
+      <DependentUpon>TaxonAscendants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonDebugInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonDebugInfo.designer.cs">
+      <DependentUpon>TaxonDebugInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonEditInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonEditInfo.Designer.cs">
+      <DependentUpon>TaxonEditInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonFavorites.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonFavorites.designer.cs">
+      <DependentUpon>TaxonFavorites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonFinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonFinder.designer.cs">
+      <DependentUpon>TaxonFinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\TaxonGraphPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonGraphPanel\TaxonGraphPanel.designer.cs">
+      <DependentUpon>TaxonGraphPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonHistory.designer.cs">
+      <DependentUpon>TaxonHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonInfo.designer.cs">
+      <DependentUpon>TaxonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonLog.Designer.cs">
+      <DependentUpon>TaxonLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaxonControls\TaxonNavigator.designer.cs">
+      <DependentUpon>TaxonNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDatas\TaxonCommentsCollection.cs" />
+    <Compile Include="TaxonDatas\TaxonDesc.cs" />
+    <Compile Include="TaxonDatas\TaxonFiltering.cs" />
+    <Compile Include="TaxonDatas\TaxonFilterListInFile.cs" />
+    <Compile Include="TaxonDatas\TaxonIDs.cs" />
+    <Compile Include="TaxonDatas\TaxonImageCollection.cs" />
+    <Compile Include="TaxonDatas\TaxonImageDesc.cs" />
+    <Compile Include="TaxonDatas\TaxonList.cs" />
+    <Compile Include="TaxonDatas\TaxonLocation.cs" />
+    <Compile Include="TaxonDatas\TaxonSearch.cs" />
+    <Compile Include="TaxonDatas\Synonyms.cs" />
+    <Compile Include="TaxonDatas\TaxonSearchAsync.cs" />
+    <Compile Include="TaxonDatas\TaxonTreeNodeFilter.cs" />
+    <Compile Include="TaxonDatas\TaxonTreeNodeNamed.cs" />
+    <Compile Include="TaxonDatas\TaxonEnum.cs" />
+    <Compile Include="TaxonDatas\TaxonImages.cs" />
+    <Compile Include="TaxonDatas\TaxonTreeNode.cs" />
+    <Compile Include="TaxonDatas\taxonTreeNode_File.cs" />
+    <Compile Include="Database\TaxonSQLite.cs" />
+    <Compile Include="TaxonDialog\CollectionManagerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\CollectionManagerDialog.Designer.cs">
+      <DependentUpon>CollectionManagerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\ExportDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\ExportDialog.Designer.cs">
+      <DependentUpon>ExportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\GenerateNewDatabaseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\GenerateNewDatabaseDialog.Designer.cs">
+      <DependentUpon>GenerateNewDatabaseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\NewImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\NewImage.Designer.cs">
+      <DependentUpon>NewImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\NewTaxon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\NewTaxon.Designer.cs">
+      <DependentUpon>NewTaxon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\ProgressDialog.Designer.cs">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\QuestionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\QuestionDialog.Designer.cs">
+      <DependentUpon>QuestionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\SynonymsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\SynonymsDialog.Designer.cs">
+      <DependentUpon>SynonymsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\SynonymsManagerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\SynonymsManagerDialog.Designer.cs">
+      <DependentUpon>SynonymsManagerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\TagBatchImportDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\TagBatchImportDialog.Designer.cs">
+      <DependentUpon>TagBatchImportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonDialog\TaxonListBoxFloating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxonDialog\TaxonListBoxFloating.Designer.cs">
+      <DependentUpon>TaxonListBoxFloating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonUtils.cs" />
+    <Compile Include="TipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipForm.Designer.cs">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\CheckDuplicateNames.cs" />
+    <Compile Include="Tools\CheckExtinctFlags.cs" />
+    <Compile Include="Tools\CheckImagesWithoutFrenchNames.cs" />
+    <Compile Include="Tools\CheckNames.cs" />
+    <Compile Include="Tools\CheckSpeciesWithoutSpaceChar.cs" />
+    <Compile Include="Tools\CheckTaxonIDs.cs" />
+    <Compile Include="Tools\CheckUnusedImages.cs" />
+    <Compile Include="Tools\CheckUnusedSound.cs" />
+    <Compile Include="Tools\CollectionGenerateArkive.cs" />
+    <Compile Include="Tools\CollectionManager.cs" />
+    <Compile Include="Tools\ComputeClassicRank.cs" />
+    <Compile Include="Tools\ImageRenameSynonyms.cs" />
+    <Compile Include="Tools\Image_CheckCollectionsIds.cs" />
+    <Compile Include="Tools\ImportRedListCategory.cs" />
+    <Compile Include="Tools\ImportSpeciesOnGenre.cs" />
+    <Compile Include="Tools\LocationCreate.cs" />
+    <Compile Include="Tools\NamesExportFrench.cs" />
+    <Compile Include="Tools\NamesImportFrench.cs" />
+    <Compile Include="Tools\NamesRemoveDeadCross.cs" />
+    <Compile Include="Tools\RemoveUnderscoreInName.cs" />
+    <Compile Include="Tools\SynonymRemoveOu.cs" />
+    <Compile Include="Tools\SynonymsEdition.cs" />
+    <Compile Include="Tools\SynonymsExport.cs" />
+    <Compile Include="Tools\SynonymsImport.cs" />
+    <Compile Include="Tools\SynonymsListAll.cs" />
+    <Compile Include="Tools\SynonymWebSearch.cs" />
+    <Compile Include="Tools\TaxonListOfNonSpeciesLeaves.cs" />
+    <Compile Include="Tools\TaxonNormalizeExtinctAndAlive.cs" />
+    <Compile Include="Tools\TaxonSortSpecies.cs" />
+    <Compile Include="Tools\UpdateImages.cs" />
+    <Compile Include="Tools\UpdateSoundFlag.cs" />
+    <Compile Include="Tools\_Tools.cs" />
+    <Compile Include="Tools\_WorkCheck.cs" />
+    <EmbeddedResource Include="GUI\FormContainer.resx">
+      <DependentUpon>FormContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaxonListImage.resx">
+      <DependentUpon>TaxonListImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaxonMultiCommentControl.resx">
+      <DependentUpon>TaxonMultiCommentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaxonMultiImageSoundControl.resx">
+      <DependentUpon>TaxonMultiImageSoundControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ControlContainerTabs.resx">
+      <DependentUpon>ControlContainerTabs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TaxonControls\TaxonAscendants.resx">
+      <DependentUpon>TaxonAscendants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonDebugInfo.resx">
+      <DependentUpon>TaxonDebugInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonEditInfo.resx">
+      <DependentUpon>TaxonEditInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonFavorites.resx">
+      <DependentUpon>TaxonFavorites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonFinder.resx">
+      <DependentUpon>TaxonFinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonGameHangman.resx">
+      <DependentUpon>TaxonGameHangman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonGameQuizz.resx">
+      <DependentUpon>TaxonGameQuizz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonGraphPanel\TaxonGraphPanel.resx">
+      <DependentUpon>TaxonGraphPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonHistory.resx">
+      <DependentUpon>TaxonHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonInfo.resx">
+      <DependentUpon>TaxonInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonLog.resx">
+      <DependentUpon>TaxonLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonNavigator.resx">
+      <DependentUpon>TaxonNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonOptions.resx">
+      <DependentUpon>TaxonOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonTags.resx">
+      <DependentUpon>TaxonTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonControls\TaxonGraph.resx">
+      <DependentUpon>TaxonGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\CollectionManagerDialog.resx">
+      <DependentUpon>CollectionManagerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\ExportDialog.resx">
+      <DependentUpon>ExportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\GenerateNewDatabaseDialog.resx">
+      <DependentUpon>GenerateNewDatabaseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\NewImage.resx">
+      <DependentUpon>NewImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\NewTaxon.resx">
+      <DependentUpon>NewTaxon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\ProgressDialog.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\QuestionDialog.resx">
+      <DependentUpon>QuestionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\SynonymsDialog.resx">
+      <DependentUpon>SynonymsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\SynonymsManagerDialog.resx">
+      <DependentUpon>SynonymsManagerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\TagBatchImportDialog.resx">
+      <DependentUpon>TagBatchImportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxonDialog\TaxonListBoxFloating.resx">
+      <DependentUpon>TaxonListBoxFloating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TipForm.resx">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TreeOfLife_CléTemporaire.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magnifier2.png" />
+    <None Include="Resources\DockIndicator_Bottom.png" />
+    <None Include="Resources\DockIndicator_Center.png" />
+    <None Include="Resources\DockIndicator_Inactive.png" />
+    <None Include="Resources\DockIndicator_Left.png" />
+    <None Include="Resources\DockIndicator_Right.png" />
+    <None Include="Resources\DockIndicator_Top.png" />
+    <None Include="Resources\locked.png" />
+    <None Include="Resources\Undo.png" />
+    <None Include="Resources\unlocked.png" />
+    <None Include="Resources\clear.png" />
+    <None Include="Resources\google.png" />
+    <None Include="Resources\magnifier.png" />
+    <None Include="Resources\TaxonLog.png" />
+    <None Include="Resources\TaxonGameHangman.png" />
+    <None Include="Resources\hangman00.png" />
+    <None Include="Resources\hangman01.png" />
+    <None Include="Resources\hangman02.png" />
+    <None Include="Resources\hangman03.png" />
+    <None Include="Resources\hangman04.png" />
+    <None Include="Resources\hangman05.png" />
+    <None Include="Resources\hangman06.png" />
+    <None Include="Resources\hangman07.png" />
+    <None Include="Resources\hangman08.png" />
+    <None Include="Resources\hangman09.png" />
+    <None Include="Resources\hangman10.png" />
+    <None Include="Resources\hangman11.png" />
+    <None Include="Resources\plus_16x16.png" />
+    <Content Include="FodyWeavers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Resources\cross_16x16.png" />
+    <None Include="Resources\cross_16x16_purple.png" />
+    <None Include="Resources\down_16x16.png" />
+    <None Include="Resources\down_16x16_purple.png" />
+    <None Include="Resources\plus_16x16_purple.png" />
+    <None Include="Resources\plus_16x16_black.png" />
+    <None Include="Resources\linedown_16x16.png" />
+    <None Include="Resources\lineup_16x16.png" />
+    <None Include="Resources\Carte.html" />
+    <EmbeddedResource Include="Resources\france.js" />
+    <None Include="Resources\Next_Image.png" />
+    <None Include="Resources\List_Mode.png" />
+    <None Include="Resources\new_splash_screen.png" />
+    <None Include="Resources\Collapse_comments.png" />
+    <None Include="Resources\Expand_comments.png" />
+    <None Include="Resources\filter_unnamed.png" />
+    <None Include="Resources\filter_alive.png" />
+    <None Include="Resources\filter_extinct.png" />
+    <None Include="Resources\new_quizz_background.jpg" />
+    <None Include="Resources\open-folder.png" />
+    <None Include="Resources\bottom_16x16.png" />
+    <None Include="Resources\bottom_16x16_purple.png" />
+    <Content Include="Resources\ott.png" />
+    <None Include="Resources\Previous_Image.png" />
+    <None Include="Resources\Random_mode.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\save_12x12_white.png" />
+    <Content Include="Resources\TaxonGameQuizz.png" />
+    <None Include="Resources\TaxonOptions.png" />
+    <None Include="Resources\up_16x16.png" />
+    <None Include="Resources\up_16x16_purple.png" />
+    <Content Include="Resources\TaxonTags.png" />
+    <None Include="Resources\top_16x16.png" />
+    <None Include="Resources\top_16x16_purple.png" />
+    <Content Include="Resources\WikimediaCommons_32x32.png" />
+    <Content Include="TreeOfLife.ico" />
+    <None Include="Resources\Wait.png" />
+    <None Include="Resources\TreeOfLife.ico" />
+    <None Include="Resources\TaxonAscendant.png" />
+    <None Include="Resources\TaxonDebugInfo.png" />
+    <None Include="Resources\TaxonEditInfo.png" />
+    <None Include="Resources\TaxonFavorites.png" />
+    <None Include="Resources\TaxonFinder.png" />
+    <None Include="Resources\TaxonGraph.png" />
+    <None Include="Resources\TaxonHistory.png" />
+    <None Include="Resources\TaxonInfo.png" />
+    <None Include="Resources\TaxonNavigator.png" />
+    <None Include="Resources\NoImage.png" />
+    <Content Include="Resources\TreeOfLife.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <UsingTask TaskName="CosturaCleanup" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Config Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem" />
+      <Files Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task Evaluate="true">
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml" />
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml.Linq" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.IO" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.Xml.Linq" />
+      <Code xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Type="Fragment" Language="cs"><![CDATA[
+var config = XElement.Load(Config.ItemSpec).Elements("Costura").FirstOrDefault();
+
+if (config == null) return true;
+
+var excludedAssemblies = new List<string>();
+var attribute = config.Attribute("ExcludeAssemblies");
+if (attribute != null)
+    foreach (var item in attribute.Value.Split('|').Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+var element = config.Element("ExcludeAssemblies");
+if (element != null)
+    foreach (var item in element.Value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+
+var filesToCleanup = Files.Select(f => f.ItemSpec).Where(f => !excludedAssemblies.Contains(Path.GetFileNameWithoutExtension(f), StringComparer.InvariantCultureIgnoreCase));
+
+foreach (var item in filesToCleanup)
+  File.Delete(item);
+]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild;NonWinFodyTarget">
+    <CosturaCleanup Config="FodyWeavers.xml" Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.3.0.3\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.0.3\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

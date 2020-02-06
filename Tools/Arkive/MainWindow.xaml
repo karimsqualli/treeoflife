@@ -1,0 +1,111 @@
+﻿<Window x:Class="Arkive.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Arkive"
+        mc:Ignorable="d"
+        Title="Arkive tools" Height="424" Width="525" 
+        Closing="Window_Closing" 
+        Loaded="Window_Loaded"
+        Background="ForestGreen"
+>
+    <StackPanel Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+           </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Output directory" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding OutputFolder}" Margin="10"/>
+            <Button Grid.Row="0" Grid.Column="2" Content="  ...  " Margin="8,5,2,5" Click="ButtonOutputFolder_Click"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="open" Margin="2,5,0,5" Click="ButtonOpenOutputFolder_Click"/>
+            
+
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Log" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding LogFilename}" Margin="10,0"/>
+            <Button Grid.Column="3" Grid.Row="2" Content="open" Click="ButtonOpenLog_Click" />
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Species" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding SpeciesFilename}" Margin="10,0"/>
+            <Button Grid.Column="3" Grid.Row="3" Content="open" Click="ButtonOpenSpecies_Click" />
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="Images" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding ImageUrlsFilename}" Margin="10,0"/>
+            <Button Grid.Column="3" Grid.Row="4" Content="open" Click="ButtonOpenImages_Click" />
+
+            <TextBlock Grid.Column="0" Grid.Row="5" Text="Images csv" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding ImageCsvFilename}" Margin="10,0"/>
+            <Button Grid.Column="3" Grid.Row="5" Content="open" Click="ButtonOpenImageCsv_Click" />
+        </Grid>
+
+        <Grid Background="PaleGreen">
+            <StackPanel>
+                <TextBlock Text="Species" FontSize="15" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Margin="10,5">
+                    <ToggleButton Content="Use local file" IsChecked="{Binding UseSpeciesLocalFile}" IsEnabled="{Binding CanOpenSpeciesFile}"/>
+                    <Button Content="Get species" Click="ButtonGetSpecies_Click" Margin="5,0"/>
+                    <TextBlock Text="Number: " FontSize="15" Margin="1, 0"/>
+                    <TextBlock Text="{Binding Species.Count}" FontSize="15" Margin="1, 0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Background="LightSeaGreen">
+            <StackPanel>
+                <TextBlock Text="Species image urls" FontSize="15" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Margin="10,5">
+                    <ToggleButton Content="Use local file" IsChecked="{Binding UseImageUrlsLocalFile}" />
+                    <Button Content="Get urls" Click="ButtonGetImageUrls_Click" Margin="5,0"/>
+                    <TextBlock Text="Number: " FontSize="15" Margin="1, 0"/>
+                    <TextBlock Text="{Binding ImageUrlsCount}" FontSize="15" Margin="1, 0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,5">
+                    <Button Content="Generate csv" Click="ButtonGenerateCsv_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Background="PaleGreen">
+            <StackPanel>
+                <TextBlock Text="Local images" FontSize="15" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Margin="10,5">
+
+                    <Button Content="Get local images" Width="100" Click="ButtonGetLocalImages_Click" />
+                    <TextBlock Text="Number: " FontSize="15" Margin="5,0"/>
+                    <TextBlock Text="{Binding LocalImagesCount}" FontSize="15"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,5">
+
+                    <Button Content="Compute diff" Width="100"  Click="ButtonComputeDiff_Click"/>
+                    <TextBlock Text="Diff: " FontSize="15" Margin="5,0" />
+                    <TextBlock Text="{Binding DiffDesc}" FontSize="15" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Background="LightSeaGreen">
+            <StackPanel>
+                <TextBlock Text="Synchronize" FontSize="15" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Margin="10,5">
+                    <Button Content="Remove olds images" Click="ButtonRemoveOld_Click" Margin="5,0"/>
+                    <Button Content="Get new images" Click="ButtonGetNew_Click" Margin="5,0"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Carte de france</title>
+	</head>
+
+	<body bgcolor="#808" style="background:#808" onload="france_start('FranceCanvas');" >
+
+		<script type="text/javascript" src="./france.js"></script>
+
+		<div  style="display: block; position: relative; padding: 0px; width: 507; height: 553px;">
+			<canvas 
+				id = "FranceCanvas" 
+				onmousemove="mouseMove(event)"
+				onclick="mouseClick()"
+				style="width: 507px; height: 553px; position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;" 
+				height="553" width="507">
+			</canvas>
+		</div>
+		
+		<p id="demo" style="color:white;"></p>
+
+	</body>
+
+</html>
