@@ -1,0 +1,4 @@
+C:\Users\dalie\Source\Repos\References\VinceToolbox.dll
+C:\Users\dalie\Source\Repos\References\VinceToolbox.pdb
+C:\Users\dalie\Source\Repos\treeoflife\VinceToolbox\obj\Debug\VinceToolbox.dll
+C:\Users\dalie\Source\Repos\treeoflife\VinceToolbox\obj\Debug\VinceToolbox.pdb

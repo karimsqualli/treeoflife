@@ -119,6 +119,7 @@ namespace TreeOfLife.TaxonDialog
                     {
                         folder = CollectionToEnumerate[0].Path;
                         count += CollectionToEnumerate[0].NumberOfLinks();
+                        count += CollectionToEnumerate[0].NumberOfDistantReferences();
                         CollectionToEnumerate.RemoveAt(0);
                     }
                 }
@@ -179,6 +180,8 @@ namespace TreeOfLife.TaxonDialog
                         return;
                     }
                 }
+
+                
 
                 lock (dataGridViewImages.Rows)
                 {

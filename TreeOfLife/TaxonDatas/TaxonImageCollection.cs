@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -61,6 +63,7 @@ namespace TreeOfLife
         public string Path = "";
         public int Id = 0;
         public string Desc = "";
+        public string Location = "";
 
         private bool _UseIt = true;
         public bool UseIt
@@ -84,6 +87,58 @@ namespace TreeOfLife
             LoadInfos();
             ConvertCsvs();
             LoadLinks();
+            LoadDistantReferences();
+        }
+
+        public object TAXON_NAME_KEY { get; } = "taxon";
+        public object TAXON_IMAGE_KEY { get; } = "images";
+        public object IMAGE_ID_KEY { get; } = "id";
+        public object IMAGE_FILE_KEY { get; } = "file";
+
+        private void LoadDistantReferences()
+        {
+            if (! IsDistant())
+            {
+                return;
+            }
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    string collection = string.Empty;
+
+                    collection = client.DownloadString(Location);
+                    
+                    JArray taxons = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(collection);
+
+                    foreach (JObject taxon in taxons)
+                    {
+                        string taxonName = (string)taxon[TAXON_NAME_KEY];
+                        Console.WriteLine(taxonName);
+                        foreach (JObject image in taxon[TAXON_IMAGE_KEY])
+                        {
+                            int id = (int)image[IMAGE_ID_KEY];
+                            string path = (string)image[IMAGE_FILE_KEY];
+                            _DistantReferences.Add(new DistantReference(id, taxonName, path));
+                        }
+                    }
+                }
+
+            }
+            catch (WebException e)
+            {
+                Loggers.WriteError(LogTags.Image, "Unable to fetch image collection from :\n" + Location + "\n" + e.Message);
+            }
+        }
+
+        public int NumberOfDistantReferences()
+        {
+            return _DistantReferences.Count;
+        }
+
+        private bool IsDistant()
+        {
+            return Location != "";
         }
 
         //-----------------------------------------------------------------------------------------
@@ -125,11 +180,14 @@ namespace TreeOfLife
                     using (TextReader reader = new StreamReader(filename))
                     {
                         ImageCollection obj = deserializer.Deserialize(reader) as ImageCollection;
-                        if (obj != null && obj.Name == Name && obj.Path == Path && obj.Id == Id)
+                        
+                        if (obj != null && obj.Id == Id)
                         {
+                            Console.WriteLine("Collection : " + obj.Name + "; Location : " + obj.Location);
                             UseIt = obj.UseIt;
                             IsDefault = obj.IsDefault;
                             Desc = obj.Desc;
+                            Location = obj.Location;
                         }
                     }
                 }
@@ -144,6 +202,11 @@ namespace TreeOfLife
         [XmlIgnore]
         public Dictionary<int, ImagesLinks> AllLinks { get { return _AllLinks; } }
         Dictionary<int, ImagesLinks> _AllLinks = new Dictionary<int, ImagesLinks>();
+
+        [XmlIgnore]
+        public List<DistantReference> DistantReferences { get { return _DistantReferences; } }
+        List<DistantReference> _DistantReferences = new List<DistantReference>();
+
 
         void LoadLinks()
         {
@@ -277,6 +340,20 @@ namespace TreeOfLife
             if (_collections == null) return;
             foreach (ImageCollection collection in _collections.Values)
                 collection.SaveInfos();
+        }
+    }
+
+    public class DistantReference
+    {
+        private int Index;
+        private string TaxonName;
+        private string ImageFile;
+
+        public DistantReference(int _index, string _taxonName, string _imageFile)
+        {
+            Index = _index;
+            TaxonName = _taxonName;
+            ImageFile = _imageFile;
         }
     }
 }
