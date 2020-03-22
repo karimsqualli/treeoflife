@@ -1,0 +1,9 @@
+C:\Users\dalie\source\repos\References\VinceSoundPlayer.dll
+C:\Users\dalie\source\repos\References\VinceSoundPlayer.pdb
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.csprojAssemblyReference.cache
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.PlayerSmall.resources
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.Properties.Resources.resources
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.csproj.GenerateResource.cache
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.csproj.CopyComplete
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.dll
+C:\Users\dalie\source\repos\treeoflife\VinceSoundPlayer\obj\Release\VinceSoundPlayer.pdb

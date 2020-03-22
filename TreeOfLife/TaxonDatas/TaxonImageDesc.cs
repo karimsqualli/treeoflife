@@ -60,6 +60,11 @@ namespace TreeOfLife
             return Path.Combine(TaxonUtils.GetImageCachePath(), "link_" + CollectionId.ToString() + "_" + LinksId.ToString() + "-" + Index.ToString() + ".jpg");
         }
 
+        public string getDistantImageCacheFile(TaxonDesc _desc)
+        {
+            return Path.Combine(TaxonUtils.GetImageCachePath(), "distant_" + CollectionId.ToString() + "_" + _desc.RefMultiName.Main + "-" + Index.ToString() + ".jpg");
+        }
+
         public string GetTempName(TaxonDesc _taxon)
         {
             string name = GetName(_taxon);
@@ -145,5 +150,6 @@ namespace TreeOfLife
             Index = _newIndex;
             return true;
         }
+
     }
 }

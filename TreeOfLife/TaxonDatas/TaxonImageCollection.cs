@@ -136,7 +136,7 @@ namespace TreeOfLife
             return _DistantReferences.Count;
         }
 
-        private bool IsDistant()
+        public bool IsDistant()
         {
             return Location != "";
         }
@@ -341,13 +341,27 @@ namespace TreeOfLife
             foreach (ImageCollection collection in _collections.Values)
                 collection.SaveInfos();
         }
+
+        internal string getDistantImageLink(string _taxonName, int _index)
+        {
+            if (! IsDistant())
+            {
+                return null;
+            }
+
+            string link = Location + "/";
+            link += _taxonName + "/";
+            link += _index;
+
+            return link;
+        }
     }
 
     public class DistantReference
     {
-        private int Index;
-        private string TaxonName;
-        private string ImageFile;
+        public int Index;
+        public string TaxonName;
+        public string ImageFile;
 
         public DistantReference(int _index, string _taxonName, string _imageFile)
         {

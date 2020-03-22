@@ -1,0 +1,5 @@
+C:\Users\dalie\source\repos\treeoflife\VinceToolbox\bin\Release\VinceToolbox.dll
+C:\Users\dalie\source\repos\treeoflife\VinceToolbox\bin\Release\VinceToolbox.pdb
+C:\Users\dalie\source\repos\treeoflife\VinceToolbox\obj\Release\VinceToolbox.csprojAssemblyReference.cache
+C:\Users\dalie\source\repos\treeoflife\VinceToolbox\obj\Release\VinceToolbox.dll
+C:\Users\dalie\source\repos\treeoflife\VinceToolbox\obj\Release\VinceToolbox.pdb

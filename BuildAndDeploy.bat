@@ -9,9 +9,9 @@ if %verbose%==1 (
     echo verbose is off
 )
 
-set Compilo="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+set Compilo="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"
 if not exist %Compilo% (
-	set Compilo="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe"
+	set Compilo="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"
 )
 if not exist %Compilo% (
 	echo Compilo not found

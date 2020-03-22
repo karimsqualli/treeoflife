@@ -143,6 +143,26 @@ namespace TreeOfLife.Tools
                             }
                         }
                     }
+
+                    foreach (var reference in collection.DistantReferences)
+                    {
+
+                        if (dico.TryGetValue(reference.TaxonName.ToLower(), out TaxonTreeNode node))
+                        {
+                            Console.WriteLine(reference.TaxonName);
+                            TaxonImageDesc desc = new TaxonImageDesc
+                            {
+                                CollectionId = collection.Id,
+                                Secondary = false,
+                                LinksId = 0,
+                                Index = reference.Index
+                            };
+
+                            if (node.Desc.Images == null)
+                                node.Desc.Images = new List<TaxonImageDesc>();
+                            node.Desc.Images.Add(desc);
+                        }
+                    }
                 }
 
                 DateTime ts_StartFinalise = DateTime.Now;

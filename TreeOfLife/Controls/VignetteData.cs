@@ -240,6 +240,10 @@ namespace TreeOfLife.Controls
         void OnImageLoaded(TaxonTreeNode _taxon, Image _image)
         {
             if (_taxon != _CurrentTaxon) return;
+            if (_image == null)
+            {
+                CurrentImage = TaxonImageControl.ImageNone;
+            }
             CurrentImage = _image;
         }
 

@@ -343,38 +343,68 @@ namespace TreeOfLife
             if (!(sender is BackgroundWorkerFullImage data)) return;
 
             TaxonImageDesc desc = data.Request.ImageDesc;
+
             string path;
-            if (desc != null && desc.IsALink)
-            {
-                path = desc.GetImageCacheFile();
-                if (!File.Exists(path))
-                {
-                    string link = desc.GetLink();
-                    if (string.IsNullOrEmpty(link)) return;
-                    using (WebClient client = new WebClient())
-                    {
-                        client.DownloadFile(new Uri(link), path);
-                    }
-                }
-                if (!File.Exists(path))
-                    return;
-            }
-            else
-            {
-                path = data.Request.ImageDesc.GetPath(data.Request.Taxon.Desc);
-                if (!File.Exists(path))
-                    return;
-            }
 
-
+            ImageCollection collection = Collection(desc.CollectionId);
+            Console.WriteLine("Fetching image : " + data.Request.Taxon.Desc.RefMultiName.Main + " "  + desc.Index + " " + collection.Id);
+            Console.WriteLine(collection.IsDistant());
+            string link = "";
             try
             {
-                data.LoadedImage = VinceToolbox.Helpers.BitmapHelper.GetImage(path);
-                //data.LoadedImage.Save("c:/temp.bmp");
-            }
-            catch (Exception ex)
+                // Todo: Prevent distant collections from having links or local images
+                if (desc != null && desc.IsALink)
+                {
+                    path = desc.GetImageCacheFile();
+                    if (!File.Exists(path))
+                    {
+                        link = desc.GetLink();
+                        if (string.IsNullOrEmpty(link)) return;
+                        using (WebClient client = new WebClient())
+                        {
+                            client.DownloadFile(new Uri(link), path);
+                        }
+                    }
+                    if (!File.Exists(path))
+                        return;
+                }
+                else if (collection.IsDistant())
+                {
+                    path = desc.getDistantImageCacheFile(data.Request.Taxon.Desc);
+                    Console.WriteLine(collection.getDistantImageLink(data.Request.Taxon.Desc.RefMultiName.Main, desc.Index));
+                    if (!File.Exists(path))
+                    {
+                        link = collection.getDistantImageLink(data.Request.Taxon.Desc.RefMultiName.Main, desc.Index);
+
+                        using (WebClient client = new WebClient())
+                        {
+                            client.DownloadFile(new Uri(link), path);
+                        }
+                        if (!File.Exists(path))
+                            return;
+                    }
+                }
+                else
+                {
+                    path = data.Request.ImageDesc.GetPath(data.Request.Taxon.Desc);
+                    if (!File.Exists(path))
+                        return;
+                }
+
+
+                try
+                {
+                    data.LoadedImage = VinceToolbox.Helpers.BitmapHelper.GetImage(path);
+                    //data.LoadedImage.Save("c:/temp.bmp");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            } catch (WebException exception)
             {
-                Console.WriteLine(ex.Message);
+                Loggers.WriteWarning(LogTags.Image, "Unable to download image file : " + link);
+                data.LoadedImage = null;
             }
         }
 
