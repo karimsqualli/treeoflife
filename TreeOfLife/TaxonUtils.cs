@@ -346,6 +346,7 @@ namespace TreeOfLife
 
         //----- Sound
         static public string GetSoundDirectory() { return Path.Combine( MyConfig.TaxonPath, "Sounds"); }
+        // static public string GetSoundDirectory() { return Path.Combine(TaxonUtils.Datas.SoundsDataPath(), "Sounds"); }
 
         static public string GetSoundFullPath(TaxonDesc _taxon) { return GetSoundFullPath(_taxon.SoundName); }
         static public string GetSoundFullPath(TaxonTreeNode _node) { return _node == null ? null : GetSoundFullPath(_node.Desc.SoundName); }

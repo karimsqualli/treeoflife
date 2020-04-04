@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -305,7 +306,16 @@ namespace TreeOfLife.Controls
                     SoundPlayerData.DisplayMode = VinceSoundPlayer.PlayerSmall.DisplayModeEnum.PlayPauseStop;
                     SoundPlayerData.OnChanged += (o,e) => OnCurrentImageChanged?.Invoke(this, EventArgs.Empty);
                 }
-                SoundPlayerData.File = TaxonUtils.GetSoundFullPath(CurrentTaxon);
+
+                //string soundPath = TaxonUtils.GetSoundFullPath(CurrentTaxon);
+                string soundPath = null;
+
+                if (soundPath == null || ! File.Exists(soundPath))
+                {
+                    soundPath = TaxonUtils.Datas.DownloadSound(CurrentTaxon);
+                }
+
+                SoundPlayerData.File = soundPath;
             }
             else
             {

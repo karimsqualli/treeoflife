@@ -1,4 +1,5 @@
-﻿using Ionic.Zip;
+﻿using Flurl;
+using Ionic.Zip;
 using System;
 using System.IO;
 using System.Net;
@@ -8,6 +9,7 @@ namespace TreeOfLife
     public class TolDatas
     {
         private string tolAppDataFolder;
+
 
         public void Init()
         {
@@ -41,6 +43,23 @@ namespace TreeOfLife
         internal string CommentDataPath()
         {
             return Path.Combine(tolAppDataFolder, "Datas", "Comments");
+        }
+
+
+        public string SoundsDataPath() {
+            return Path.Combine(tolAppDataFolder, "Datas", "Sounds");
+        }
+
+        internal string DownloadSound(TaxonTreeNode currentTaxon)
+        {
+            string path = Path.Combine(SoundsDataPath(), currentTaxon.Desc.RefMultiName.Main) + ".wma";
+
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(Url.Combine("http://localhost:8888", "sounds", currentTaxon.Desc.RefMultiName.Main), path);
+            }
+
+            return path;
         }
     }
 }
