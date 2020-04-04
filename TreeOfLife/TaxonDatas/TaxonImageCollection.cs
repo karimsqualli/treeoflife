@@ -114,7 +114,6 @@ namespace TreeOfLife
                     foreach (JObject taxon in taxons)
                     {
                         string taxonName = (string)taxon[TAXON_NAME_KEY];
-                        Console.WriteLine(taxonName);
                         foreach (JObject image in taxon[TAXON_IMAGE_KEY])
                         {
                             int id = (int)image[IMAGE_ID_KEY];
@@ -323,6 +322,7 @@ namespace TreeOfLife
                 string[] listSub = Directory.GetDirectories(_folder);
                 foreach (string s in listSub)
                 {
+                    Console.WriteLine(s);
                     ImageCollection collection = new ImageCollection(s, System.IO.Path.GetFileName(s));
                     if (result.ContainsKey(collection.Id))
                         Loggers.WriteError(LogTags.Image, "Collection with same ID, should not happen !!");

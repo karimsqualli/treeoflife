@@ -97,6 +97,12 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DotNetZip, Version=1.13.7.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.7\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.WMPLib">
       <HintPath>References\Interop.WMPLib.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -434,6 +440,7 @@
     <Compile Include="TipForm.Designer.cs">
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TolDatas.cs" />
     <Compile Include="Tools\CheckDuplicateNames.cs" />
     <Compile Include="Tools\CheckExtinctFlags.cs" />
     <Compile Include="Tools\CheckImagesWithoutFrenchNames.cs" />

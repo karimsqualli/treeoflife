@@ -240,6 +240,7 @@ namespace TreeOfLife
                         {
                             path = list[0].GetPath(t.Desc),
                             link = list[0].GetLink(),
+
                             linkcachefile = list[0].GetImageCacheFile()
                         };
                         ToTreat.Add(this[t.Desc.RefMultiName.Main]);

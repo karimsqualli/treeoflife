@@ -248,15 +248,24 @@ namespace TreeOfLife.TaxonDialog
                 bool up = TaxonComments.Manager.CanMoveUp(collection);
                 bool down = TaxonComments.Manager.CanMoveDown(collection);
                 string name = collection.Name;
-                string[] files = null;
-                try { files = System.IO.Directory.GetFiles(collection.Path, "*.html"); }
-                catch { continue; }
 
-                int fileNumber = files.Where(x => !x.StartsWith("_") && !x.StartsWith("~")).Count();
+                int numberOfComments = 0;
+                if (collection.IsDistant())
+                {
+                    numberOfComments = collection.NumberOfDistantReferences();
+                } else
+                {
+                    string[] files = null;
+                    try { files = System.IO.Directory.GetFiles(collection.Path, "*.html"); }
+                    catch { continue; }
+
+                    numberOfComments = files.Where(x => !x.StartsWith("_") && !x.StartsWith("~")).Count();
+                }
+                
                 bool useIt = collection.UseIt;
                 Image image = CommentsPrioImage(collection.PriorityOrder, up, down);
 
-                dataGridViewComments.Rows.Add(new object[] { name, fileNumber, useIt, image });
+                dataGridViewComments.Rows.Add(new object[] { name, numberOfComments, useIt, image });
                 dataGridViewComments.Rows[dataGridViewComments.Rows.Count - 1].Tag = collection;
                 if (collection.Path == toSelectPath)
                     toSelect = dataGridViewComments.Rows[dataGridViewComments.Rows.Count - 1];

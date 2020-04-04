@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Flurl;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Threading;
 
 namespace TreeOfLife
@@ -174,12 +176,25 @@ namespace TreeOfLife
                 if (!GetCommentFromMemory(request.CurrentTaxon, ref comment))
                 {
                     CommentFileDesc commentFile = CommentFile(request.CurrentTaxon);
+                    
                     if (commentFile!= null)
                     {
                         try
                         {
-                            VinceToolbox.fileFunctions.readTextFile(commentFile.GetHtmlName(), ref comment);
+                            if (commentFile.Collection.IsDistant())
+                            {
+                                using (WebClient client = new WebClient())
+                                {
+                                    client.Encoding = System.Text.Encoding.UTF8;
+                                    comment = client.DownloadString(commentFile.GetDistantPath());
+                                }
+                            } else
+                            {
+
+                                VinceToolbox.fileFunctions.readTextFile(commentFile.GetHtmlName(), ref comment);
+                            }
                             comment = TransformHTMLComment(comment, commentFile);
+                            Console.WriteLine(comment);
                             StoreCommentInMemory(request.CurrentTaxon, comment);
                         }
                         catch { }
@@ -312,11 +327,18 @@ namespace TreeOfLife
         {
             if (_node == null) return null;
             string filename = CommentFilename(_node.Desc);
-
+            Console.WriteLine("foo " + filename);
             CommentFileDesc result;
             foreach (CommentsCollection collection in TaxonComments.Manager.AvailableCollections)
             {
-                result = CommentFileDesc.CreateOnlyIfFileExists(collection, filename);
+                if (filename != null && collection.IsDistant() && collection.DistantReferences.ContainsKey(filename))
+                {
+                    result = new CommentFileDesc(collection, filename);
+                }
+                else
+                {
+                    result = CommentFileDesc.CreateOnlyIfFileExists(collection, filename);
+                }
                 if (result != null) return result;
             }
             return null;
@@ -496,6 +518,10 @@ namespace TreeOfLife
 
         string TransformHTMLComment(string comment, CommentFileDesc _desc)
         {
+            if (_desc.IsDistantComment())
+            {
+                return comment.Replace("<img src=\"", "<img src=\"" + _desc.Collection.Location);
+            }
             return comment.Replace("<img src=\"", "<img src=\"" + _desc.GetPath() + "\\");
         }
 
@@ -631,6 +657,11 @@ namespace TreeOfLife
             Name = _name;
         }
 
+        public bool IsDistantComment()
+        {
+            return Collection.IsDistant();
+        }
+
         public static CommentFileDesc CreateOnlyIfFileExists(CommentsCollection _collection, string _name)
         {
             try
@@ -651,8 +682,12 @@ namespace TreeOfLife
 
         public string GetPath() { return Collection.Path; }
         public string GetHtmlName() { return Collection.Path + System.IO.Path.DirectorySeparatorChar + Name + ".html"; }
+
+        public string GetDistantImagePath() { return Collection.Location + "/"; }
+        public string GetDistantPath() { return Url.Combine(Collection.Location, Name); }
         public string GetHtmlFilesDir() { return Collection.Path + System.IO.Path.DirectorySeparatorChar + Name; }
 
         public static string BuildHtlmName(CommentsCollection _collection, string _name) { return _collection.Path + System.IO.Path.DirectorySeparatorChar + _name + ".html"; }
+
     }
 }

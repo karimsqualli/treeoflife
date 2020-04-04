@@ -17,10 +17,13 @@ namespace TreeOfLife
         //---------------------------------------------------------------------------------
         public Form1(string[] args)
         {
+            TaxonUtils.Datas.Init();
+
             //----- config
             FormAbout.SetSplashScreenMessage(".. Loading config ...");
             TaxonUtils.MyConfig = Config.Load("auto");
             TaxonUtils.MyConfig.ToData();
+
 
             //----- tip manager
             TipManager.Start();
@@ -68,10 +71,10 @@ namespace TreeOfLife
             TaxonControlList.OnUnregisterTaxonControl += TaxonControlList_OnUnregisterTaxonControl;
             SystemConfig.OnRunningModeChanged += SystemConfig_OnRunningModeChanged;
             SystemConfig_OnRunningModeChanged(null, EventArgs.Empty);
-            
+
             TaxonUtils.MyConfig.ToUI();
             taxonGraph_AddOneIfNone();
-            
+
             Loggers.WriteInformation(LogTags.Data, "Total loading time: " + (int)((endLoad - startLoad).TotalMilliseconds));
         }
 

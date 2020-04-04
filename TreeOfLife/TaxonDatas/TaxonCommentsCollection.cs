@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -17,6 +19,10 @@ namespace TreeOfLife
         public string Path = "";
         public string Desc = "";
         public int PriorityOrder = -1;
+        public string Location = "";
+
+        [XmlIgnore]
+        public Dictionary<string, string> DistantReferences = new Dictionary<string, string>();
 
         [XmlIgnore]
         public bool UseIt
@@ -35,6 +41,39 @@ namespace TreeOfLife
             Path = _fatherPath;
             PriorityOrder = -1;
             LoadInfos();
+            Console.WriteLine("FOO : " + Name + " " + Location);
+            LoadDistantReference();
+        }
+
+        private void LoadDistantReference()
+        {
+            if (!IsDistant())
+            {
+                return;
+            }
+
+            using (WebClient client = new WebClient())
+            {
+                string collection = string.Empty;
+
+                collection = client.DownloadString(Location);
+
+                JArray entries = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(collection);
+
+                foreach (JObject entry in entries)
+                {
+                    string taxonName = (string) entry["taxon"];
+                    string path = (string)entry["file"];
+
+                    DistantReferences.Add(taxonName, path);
+                    Console.WriteLine(taxonName + " " + path);
+                }
+            }
+        }
+                //-----------------------------------------------------------------------------------------
+        public bool IsDistant()
+        {
+            return Location != "";
         }
 
         //-----------------------------------------------------------------------------------------
@@ -79,6 +118,7 @@ namespace TreeOfLife
                         {
                             PriorityOrder = obj.PriorityOrder;
                             Desc = obj.Desc;
+                            Location = obj.Location;
                         }
                     }
                 }
@@ -162,6 +202,11 @@ namespace TreeOfLife
             if (_collections == null) return;
             foreach (CommentsCollection collection in _collections)
                 collection.SaveInfos();
+        }
+
+        internal int NumberOfDistantReferences()
+        {
+            return DistantReferences.Count;
         }
     }
 }
