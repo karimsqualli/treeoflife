@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Windows.Forms;
 using System.Net;
+using Flurl;
 
 namespace TreeOfLife
 {
@@ -243,6 +244,15 @@ namespace TreeOfLife
 
                             linkcachefile = list[0].GetImageCacheFile()
                         };
+
+                        ImageCollection collection = Collection(list[0].CollectionId);
+                        if (collection.IsDistant())
+                        {
+                            this[t.Desc.RefMultiName.Main].link = Url.Combine(collection.Location, t.Desc.RefMultiName.Main, list[0].Index.ToString());
+                            this[t.Desc.RefMultiName.Main].distant = true;
+                            this[t.Desc.RefMultiName.Main].linkcachefile = list[0].getDistantImageCacheFile(t.Desc);
+                        }
+
                         ToTreat.Add(this[t.Desc.RefMultiName.Main]);
                         timer.Enabled = true;
                     }
@@ -363,6 +373,7 @@ namespace TreeOfLife
                         if (string.IsNullOrEmpty(link)) return;
                         using (WebClient client = new WebClient())
                         {
+                            Console.WriteLine(link);
                             client.DownloadFile(new Uri(link), path);
                         }
                     }
@@ -478,6 +489,7 @@ namespace TreeOfLife
         public string path = null;
         public string link = null;
         public string linkcachefile = null;
+        public bool distant = false;
         bool init = false;
         bool valid = false;
         Image smallImage = null;
@@ -495,6 +507,8 @@ namespace TreeOfLife
             valid = false;
 
             string finalpath = path;
+
+            Console.WriteLine("loadlink : " + link + linkcachefile);
             if ( !string.IsNullOrEmpty(link) && linkcachefile != null)
             {
                 finalpath = linkcachefile;
