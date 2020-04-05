@@ -3,15 +3,49 @@ using Ionic.Zip;
 using System;
 using System.IO;
 using System.Net;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace TreeOfLife
 {
+    [XmlRoot("tol")]
+    public class InitFile
+    {
+        [XmlElement("api")]
+        public string api { get; set; }
+
+    }
+
     public class TolDatas
     {
-        private string tolAppDataFolder;
-        private string dataUrl = "http://localhost:8888/";
+        private static string tolAppDataFolder;
+        private static string dataUrl = "";
 
-        public void Init()
+        static TolDatas()
+        {
+            FormAbout.SetSplashScreenMessage(".. Initializing data ...");
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Choose init file";
+            ofd.InitialDirectory = @"C:\";
+            ofd.Filter = "xml files (*.xml)|*.xml";
+            ofd.Multiselect = false;
+            ofd.AddExtension = true;
+
+
+            ofd.ShowDialog();
+            XmlSerializer serializer = new XmlSerializer(typeof(InitFile));
+            using (FileStream fileStream = new FileStream(ofd.FileName, FileMode.Open))
+            {
+                InitFile file = (InitFile)serializer.Deserialize(fileStream);
+
+                dataUrl = file.api;
+            }
+
+            Init();
+        }
+
+        static void Init()
         {
             string globalAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             tolAppDataFolder = Path.Combine(globalAppDataFolder, "TOL");
@@ -23,7 +57,7 @@ namespace TreeOfLife
             }
         }
 
-        private void fetchInitData(string folder)
+        private static void fetchInitData(string folder)
         {
             string zipFilePath = Path.Combine(folder, "init.zip");
             using (WebClient client = new WebClient())
@@ -35,35 +69,40 @@ namespace TreeOfLife
             zip.ExtractAll(folder, ExtractExistingFileAction.OverwriteSilently);
         }
 
-        public string ImageDataPath()
+        public static string ImageDataPath()
         {
             return Path.Combine(tolAppDataFolder, "Datas", "Images");
         }
 
-        internal string CommentDataPath()
+        internal static string CommentDataPath()
         {
             return Path.Combine(tolAppDataFolder, "Datas", "Comments");
         }
 
-        public string SoundsDataPath() {
+        public static string SoundsDataPath() {
             return Path.Combine(tolAppDataFolder, "Datas", "Sounds");
         }
 
-        internal string DownloadSound(TaxonTreeNode currentTaxon)
+        public static string DownloadSound(TaxonTreeNode currentTaxon)
         {
             string path = Path.Combine(SoundsDataPath(), currentTaxon.Desc.RefMultiName.Main) + ".wma";
 
             using (WebClient client = new WebClient())
             {
-                client.DownloadFile(Url.Combine("http://localhost:8888", "sounds", currentTaxon.Desc.RefMultiName.Main), path);
+                client.DownloadFile(Url.Combine(dataUrl, "sounds", currentTaxon.Desc.RefMultiName.Main), path);
             }
 
             return path;
         }
 
-        internal string LocationPath(string taxonFileName)
+        public static string LocationPath(string taxonFileName)
         {
             return Path.Combine(tolAppDataFolder, "Datas", taxonFileName + "_location");
+        }
+
+        public static string DataFolder()
+        {
+            return tolAppDataFolder;
         }
     }
 }

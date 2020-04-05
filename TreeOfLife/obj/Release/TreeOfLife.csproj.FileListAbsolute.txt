@@ -82,3 +82,10 @@ C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeO
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.csproj.GenerateResource.cache
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.exe
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.pdb
+C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.exe.config
+C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.exe.manifest
+C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.application
+C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.exe
+C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.pdb
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.exe.manifest
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.application

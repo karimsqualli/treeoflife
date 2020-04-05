@@ -19,8 +19,14 @@ namespace TreeOfLife
         //=========================================================================================
         // Config file / folder
         //
-        static public string GetConfigFilePath() { return "Config"; }
-        static public string GetConfigFileName(string _name) { return "Config\\TreeOfLifeConfig_" + _name + ".xml"; }
+        static public string GetConfigFilePath() {
+            //return "Config";
+            return Path.Combine(TolDatas.DataFolder(), "Config");
+        }
+        static public string GetConfigFileName(string _name) {
+            //return "Config\\TreeOfLifeConfig_" + _name + ".xml"; 
+            return Path.Combine(TolDatas.DataFolder(), "Config", "TreeOfLifeConfig_" + _name + ".xml");
+        }
 
         public static Config MyConfig = null;
 
@@ -340,7 +346,7 @@ namespace TreeOfLife
         static public string GetTaxonLocationPath()
         {
             //string path = Path.Combine(GetTaxonPath(), Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName)+"_location" );
-            string path = Datas.LocationPath(Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName));
+            string path = TolDatas.LocationPath(Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName));
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             return path;
         }
@@ -373,8 +379,8 @@ namespace TreeOfLife
                 MyConfig.TaxonFileName = Path.GetFileName(filename);
             }
 
-            TaxonImages.Manager.Path = TaxonUtils.Datas.ImageDataPath();
-            TaxonComments.Manager.Path = TaxonUtils.Datas.CommentDataPath();
+            TaxonImages.Manager.Path = TolDatas.ImageDataPath();
+            TaxonComments.Manager.Path = TolDatas.CommentDataPath();
         }
 
         //=========================================================================================
