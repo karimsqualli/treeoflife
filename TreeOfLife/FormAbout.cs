@@ -34,11 +34,6 @@ namespace TreeOfLife
             Close();
         }
 
-        public static string NewsFile
-        {
-            get { return Path.Combine( TaxonUtils.GetTaxonPath(), "TreeOfLifeNews.rtf");  }
-        }
-
         public static void DisplayFreshNews()
         {
             // TODO : AVIRER ?

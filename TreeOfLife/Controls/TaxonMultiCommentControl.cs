@@ -231,7 +231,6 @@ namespace TreeOfLife.Controls
             TaxonTreeNode original = _Current.GetOriginal();
             if (original == null || !TaxonUtils.Locations.LocationByTaxon.TryGetValue(original, out string Ids))
                 return "";
-
             France.Map map = new France.Map();
             foreach (string id in Ids.Split("|".ToCharArray()))
                 map.SetTheme(id, "on");

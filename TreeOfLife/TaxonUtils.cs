@@ -339,7 +339,8 @@ namespace TreeOfLife
 
         static public string GetTaxonLocationPath()
         {
-            string path = Path.Combine(GetTaxonPath(), Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName)+"_location" );
+            //string path = Path.Combine(GetTaxonPath(), Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName)+"_location" );
+            string path = Datas.LocationPath(Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName));
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             return path;
         }

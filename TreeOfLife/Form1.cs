@@ -17,13 +17,13 @@ namespace TreeOfLife
         //---------------------------------------------------------------------------------
         public Form1(string[] args)
         {
+            FormAbout.SetSplashScreenMessage(".. Initializing data ...");
             TaxonUtils.Datas.Init();
 
             //----- config
             FormAbout.SetSplashScreenMessage(".. Loading config ...");
             TaxonUtils.MyConfig = Config.Load("auto");
             TaxonUtils.MyConfig.ToData();
-
 
             //----- tip manager
             TipManager.Start();

@@ -194,7 +194,6 @@ namespace TreeOfLife
                                 VinceToolbox.fileFunctions.readTextFile(commentFile.GetHtmlName(), ref comment);
                             }
                             comment = TransformHTMLComment(comment, commentFile);
-                            Console.WriteLine(comment);
                             StoreCommentInMemory(request.CurrentTaxon, comment);
                         }
                         catch { }
@@ -327,7 +326,6 @@ namespace TreeOfLife
         {
             if (_node == null) return null;
             string filename = CommentFilename(_node.Desc);
-            Console.WriteLine("foo " + filename);
             CommentFileDesc result;
             foreach (CommentsCollection collection in TaxonComments.Manager.AvailableCollections)
             {

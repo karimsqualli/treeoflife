@@ -358,8 +358,6 @@ namespace TreeOfLife
             string path;
 
             ImageCollection collection = Collection(desc.CollectionId);
-            Console.WriteLine("Fetching image : " + data.Request.Taxon.Desc.RefMultiName.Main + " "  + desc.Index + " " + collection.Id);
-            Console.WriteLine(collection.IsDistant());
             string link = "";
             try
             {
@@ -373,7 +371,6 @@ namespace TreeOfLife
                         if (string.IsNullOrEmpty(link)) return;
                         using (WebClient client = new WebClient())
                         {
-                            Console.WriteLine(link);
                             client.DownloadFile(new Uri(link), path);
                         }
                     }
@@ -383,7 +380,6 @@ namespace TreeOfLife
                 else if (collection.IsDistant())
                 {
                     path = desc.getDistantImageCacheFile(data.Request.Taxon.Desc);
-                    Console.WriteLine(collection.getDistantImageLink(data.Request.Taxon.Desc.RefMultiName.Main, desc.Index));
                     if (!File.Exists(path))
                     {
                         link = collection.getDistantImageLink(data.Request.Taxon.Desc.RefMultiName.Main, desc.Index);
@@ -508,7 +504,6 @@ namespace TreeOfLife
 
             string finalpath = path;
 
-            Console.WriteLine("loadlink : " + link + linkcachefile);
             if ( !string.IsNullOrEmpty(link) && linkcachefile != null)
             {
                 finalpath = linkcachefile;

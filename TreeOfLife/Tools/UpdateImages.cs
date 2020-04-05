@@ -149,7 +149,6 @@ namespace TreeOfLife.Tools
 
                         if (dico.TryGetValue(reference.TaxonName.ToLower(), out TaxonTreeNode node))
                         {
-                            Console.WriteLine(reference.TaxonName);
                             TaxonImageDesc desc = new TaxonImageDesc
                             {
                                 CollectionId = collection.Id,

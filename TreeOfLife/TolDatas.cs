@@ -9,7 +9,7 @@ namespace TreeOfLife
     public class TolDatas
     {
         private string tolAppDataFolder;
-
+        private string dataUrl = "http://localhost:8888/";
 
         public void Init()
         {
@@ -28,7 +28,7 @@ namespace TreeOfLife
             string zipFilePath = Path.Combine(folder, "init.zip");
             using (WebClient client = new WebClient())
             {
-                client.DownloadFile(new Uri("http://localhost:8888/appdata/init.zip"), zipFilePath);
+                client.DownloadFile(Url.Combine(dataUrl, "appdata", "init.zip"), zipFilePath);
             }
 
             ZipFile zip = ZipFile.Read(zipFilePath);
@@ -45,7 +45,6 @@ namespace TreeOfLife
             return Path.Combine(tolAppDataFolder, "Datas", "Comments");
         }
 
-
         public string SoundsDataPath() {
             return Path.Combine(tolAppDataFolder, "Datas", "Sounds");
         }
@@ -60,6 +59,11 @@ namespace TreeOfLife
             }
 
             return path;
+        }
+
+        internal string LocationPath(string taxonFileName)
+        {
+            return Path.Combine(tolAppDataFolder, "Datas", taxonFileName + "_location");
         }
     }
 }

@@ -41,7 +41,6 @@ namespace TreeOfLife
             Path = _fatherPath;
             PriorityOrder = -1;
             LoadInfos();
-            Console.WriteLine("FOO : " + Name + " " + Location);
             LoadDistantReference();
         }
 
@@ -66,7 +65,6 @@ namespace TreeOfLife
                     string path = (string)entry["file"];
 
                     DistantReferences.Add(taxonName, path);
-                    Console.WriteLine(taxonName + " " + path);
                 }
             }
         }

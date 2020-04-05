@@ -182,7 +182,6 @@ namespace TreeOfLife
                         
                         if (obj != null && obj.Id == Id)
                         {
-                            Console.WriteLine("Collection : " + obj.Name + "; Location : " + obj.Location);
                             UseIt = obj.UseIt;
                             IsDefault = obj.IsDefault;
                             Desc = obj.Desc;

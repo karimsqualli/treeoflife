@@ -24,6 +24,7 @@ namespace TreeOfLife
 
         public TaxonLocations( string _path, TaxonTreeNode _root )
         {
+            Console.WriteLine("tl : " + _path);
             List = new List<TaxonLocation>();
             _Path = _path;
             _Root = _root;
@@ -41,8 +42,10 @@ namespace TreeOfLife
         private void BWDoWork(object sender, DoWorkEventArgs e)
         {
             string[] files = Directory.GetFiles(_Path, "*.xml");
+            Console.WriteLine("location : " + _Path);
             Parallel.ForEach(files, (file) =>
                {
+                   Console.WriteLine("Location : " + file);
                    string id = Path.GetFileNameWithoutExtension(file);
                    TaxonList list = TaxonList.Load(file);
                    if (list != null)
@@ -65,10 +68,13 @@ namespace TreeOfLife
             foreach (TaxonLocation loc in List)
             {
                 foreach (TaxonTreeNode node in loc.Taxons)
+                {
                     if (LocationByTaxon.TryGetValue(node, out string nodeloc))
                         LocationByTaxon[node] = nodeloc + "|" + loc.locationId;
                     else
                         LocationByTaxon[node] = loc.locationId;
+                }
+
             }
         }
 
