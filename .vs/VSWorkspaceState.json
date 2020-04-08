@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TreeOfLife",
+    "\\TreeOfLife\\TaxonDatas"
   ],
   "SelectedNode": "\\TreeOfLife.sln",
   "PreviewInSolutionExplorer": false

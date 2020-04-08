@@ -107,6 +107,7 @@
       <HintPath>References\Interop.WMPLib.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -286,6 +287,7 @@
     <Compile Include="TaxonControls\TaxonGraph.Designer.cs">
       <DependentUpon>TaxonGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaxonDatas\SoundCollection.cs" />
     <Compile Include="TaxonDatas\TaxonComments.cs" />
     <Compile Include="TaxonControls\FactoryOfTaxonControl.cs" />
     <Compile Include="TaxonControls\TaxonAscendants.cs">
