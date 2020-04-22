@@ -307,15 +307,7 @@ namespace TreeOfLife.Controls
                     SoundPlayerData.OnChanged += (o,e) => OnCurrentImageChanged?.Invoke(this, EventArgs.Empty);
                 }
 
-                //string soundPath = TaxonUtils.GetSoundFullPath(CurrentTaxon);
-                string soundPath = null;
-
-                if (soundPath == null || ! File.Exists(soundPath))
-                {
-                    soundPath = TOLData.DownloadSound(CurrentTaxon);
-                }
-
-                SoundPlayerData.File = soundPath;
+                SoundPlayerData.File = TOLData.FindSound(CurrentTaxon);
             }
             else
             {

@@ -11,13 +11,18 @@ namespace TreeOfLife
 {
     public class TOLData
     {
+        public static string rootDataFolder { get; set; } = "";
+
         private static string tolAppDataFolder { get; set; } = "";
         private static string soundsUrl { get; set; } = "";
+
+        public static bool offline { get; set; } = false;
 
         static TOLData()
         {
             string globalAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             tolAppDataFolder = Path.Combine(globalAppDataFolder, "TOL");
+            rootDataFolder = tolAppDataFolder;
         }
 
         public static void Init()
@@ -29,6 +34,11 @@ namespace TreeOfLife
 
         public static void initSounds()
         {
+            if (offline)
+            {
+                return;
+            }
+
             XmlSerializer serializer = new XmlSerializer(typeof(SoundCollection));
             using (FileStream fileStream = new FileStream(Path.Combine(SoundsDataPath(), "_infos.xml"), FileMode.Open))
             {
@@ -39,25 +49,27 @@ namespace TreeOfLife
 
         public static string ImageDataPath()
         {
-            return Path.Combine(tolAppDataFolder, "Datas", "Images");
+            return Path.Combine(rootDataFolder, "Datas", "Images");
         }
 
         internal static string CommentDataPath()
         {
-            return Path.Combine(tolAppDataFolder, "Datas", "Comments");
+            return Path.Combine(rootDataFolder, "Datas", "Comments");
         }
 
         public static string SoundsDataPath() {
-            return Path.Combine(tolAppDataFolder, "Datas", "Sounds");
+            return Path.Combine(rootDataFolder, "Datas", "Sounds");
         }
 
-        public static string DownloadSound(TaxonTreeNode currentTaxon)
+        public static string FindSound(TaxonTreeNode taxon)
         {
-            string path = Path.Combine(SoundsDataPath(), currentTaxon.Desc.RefMultiName.Main) + ".wma";
+            string path = Path.Combine(SoundsDataPath(), taxon.Desc.RefMultiName.Main) + ".wma";
 
-            using (WebClient client = new WebClient())
-            {
-                client.DownloadFile(Url.Combine(soundsUrl, currentTaxon.Desc.RefMultiName.Main), path);
+            if (! offline) {
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(Url.Combine(soundsUrl, taxon.Desc.RefMultiName.Main), path);
+                }
             }
 
             return path;
@@ -65,7 +77,7 @@ namespace TreeOfLife
 
         public static string LocationPath(string taxonFileName)
         {
-            return Path.Combine(tolAppDataFolder, "Datas", taxonFileName + "_location");
+            return Path.Combine(rootDataFolder, "Datas", taxonFileName + "_location");
         }
 
         public static string DataFolder()

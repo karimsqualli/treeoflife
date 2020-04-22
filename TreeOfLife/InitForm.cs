@@ -20,6 +20,7 @@ namespace TreeOfLife
         public InitForm(string appDataFolder)
         {
             this.AppDataFolder = appDataFolder;
+            TopMost = true;
 
             InitializeComponent();
 
@@ -56,13 +57,49 @@ namespace TreeOfLife
                 success = downloadInitData(urlServerTextBox.Text);
             } else
             {
-
+                success = selectOffLineDataFolder();
             }
 
             if (success)
             {
                 Close();
             }
+        }
+
+        private bool selectOffLineDataFolder()
+        {
+            string selectedFolder = dataDirectoryTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(selectedFolder))
+            {
+                return false;
+            }
+
+            if (!Directory.Exists(Path.Combine(selectedFolder, "Datas", "Comments")))
+            {
+                errorLabel.Text = "Folder does not contains 'Comments' subfolder";
+
+                return false;
+            }
+
+            if (!Directory.Exists(Path.Combine(selectedFolder, "Datas", "Images")))
+            {
+                errorLabel.Text = "Folder does not contains 'Images' subfolder";
+
+                return false;
+            }
+
+            if (!Directory.Exists(Path.Combine(selectedFolder, "Datas", "Sounds")))
+            {
+                errorLabel.Text = "Folder does not contains 'Sounds' subfolder";
+
+                return false;
+            }
+
+            TOLData.offline = true;
+            TOLData.rootDataFolder = selectedFolder;
+
+            return true;
         }
 
         private bool downloadInitData(string serverUrl)
@@ -78,7 +115,7 @@ namespace TreeOfLife
             }
             catch (WebException e)
             {
-                Loggers.WriteError(LogTags.Program, "error while fetching initialization data");
+                errorLabel.Text = "Can't download init data from " + serverUrl;
                 return false;
             }
 
@@ -123,6 +160,21 @@ namespace TreeOfLife
 
             TaxonUtils.MyConfig.dataInitialized = true;
             return true;
+        }
+
+        private void selectDataDirectoryButton_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                DialogResult result = dialog.ShowDialog();
+
+                if (result != DialogResult.OK || string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                {
+                    errorLabel.Text = "Invalid directory";
+                }
+
+                dataDirectoryTextBox.Text = dialog.SelectedPath;
+            }
         }
     }
 }

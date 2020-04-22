@@ -36,11 +36,13 @@
             this.urlServerTextBox = new System.Windows.Forms.TextBox();
             this.offlineModeButton = new System.Windows.Forms.RadioButton();
             this.onlineModeButton = new System.Windows.Forms.RadioButton();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.modeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // modeGroupBox
             // 
+            this.modeGroupBox.Controls.Add(this.errorLabel);
             this.modeGroupBox.Controls.Add(this.validateButton);
             this.modeGroupBox.Controls.Add(this.quitButton);
             this.modeGroupBox.Controls.Add(this.selectDataDirectoryButton);
@@ -81,8 +83,9 @@
             this.selectDataDirectoryButton.Name = "selectDataDirectoryButton";
             this.selectDataDirectoryButton.Size = new System.Drawing.Size(276, 23);
             this.selectDataDirectoryButton.TabIndex = 4;
-            this.selectDataDirectoryButton.Text = "Sélectionner le répertoire de données";
+            this.selectDataDirectoryButton.Text = "Sélectionner le répertoire de données ...";
             this.selectDataDirectoryButton.UseVisualStyleBackColor = true;
+            this.selectDataDirectoryButton.Click += new System.EventHandler(this.selectDataDirectoryButton_Click);
             // 
             // dataDirectoryTextBox
             // 
@@ -124,6 +127,15 @@
             this.onlineModeButton.UseVisualStyleBackColor = true;
             this.onlineModeButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Crimson;
+            this.errorLabel.Location = new System.Drawing.Point(3, 215);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 17);
+            this.errorLabel.TabIndex = 7;
+            // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.RadioButton onlineModeButton;
         private System.Windows.Forms.Button validateButton;
         private System.Windows.Forms.Button quitButton;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
