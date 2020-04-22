@@ -170,11 +170,12 @@ namespace TreeOfLife
                 }
 
                 TaxonCommentRequest request = PopRequest();
+                Console.WriteLine(request.CurrentTaxon.Desc.RefMultiName.Main);
                 if (request == null) continue;
 
                 string comment = null;
-                if (!GetCommentFromMemory(request.CurrentTaxon, ref comment))
-                {
+                // if (!GetCommentFromMemory(request.CurrentTaxon, ref comment))
+                // {
                     CommentFileDesc commentFile = CommentFile(request.CurrentTaxon);
                     
                     if (commentFile!= null)
@@ -186,7 +187,9 @@ namespace TreeOfLife
                                 using (WebClient client = new WebClient())
                                 {
                                     client.Encoding = System.Text.Encoding.UTF8;
-                                    comment = client.DownloadString(commentFile.GetDistantPath());
+                                    string url = commentFile.GetDistantPath();
+                                    Console.WriteLine(url);
+                                    comment = client.DownloadString(url);
                                 }
                             } else
                             {
@@ -198,7 +201,7 @@ namespace TreeOfLife
                         }
                         catch { }
                     }
-                }
+                // }
                 //request.Callback(request.Owner, request.MainTaxon, request.CurrentTaxon, comment);
 
                 if (request.Result == null)
@@ -326,6 +329,7 @@ namespace TreeOfLife
         {
             if (_node == null) return null;
             string filename = CommentFilename(_node.Desc);
+
             CommentFileDesc result;
             foreach (CommentsCollection collection in TaxonComments.Manager.AvailableCollections)
             {

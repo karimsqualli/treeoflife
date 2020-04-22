@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\TreeOfLife",
+    "\\TreeOfLife\\Localization",
     "\\TreeOfLife\\TaxonDatas"
   ],
-  "SelectedNode": "\\TreeOfLife.sln",
+  "SelectedNode": "\\TreeOfLife\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

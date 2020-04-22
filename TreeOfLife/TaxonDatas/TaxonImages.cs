@@ -383,10 +383,11 @@ namespace TreeOfLife
                     if (!File.Exists(path))
                     {
                         link = collection.getDistantImageLink(data.Request.Taxon.Desc.RefMultiName.Main, desc.Index);
-
+                        Console.WriteLine("link : " + link);
                         using (WebClient client = new WebClient())
                         {
                             client.DownloadFile(new Uri(link), path);
+                            Console.WriteLine("downloaded !");
                         }
                         if (!File.Exists(path))
                             return;

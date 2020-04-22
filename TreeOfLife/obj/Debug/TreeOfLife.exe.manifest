@@ -127,26 +127,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3787776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3790336">
       <assemblyIdentity name="TreeOfLife" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8aXi+6OohFtVaq/rLoyf1nUJmug=</dsig:DigestValue>
+        <dsig:DigestValue>bsJSNOzRil1Qev8DgkF5rifHRug=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VinceSoundPlayer.dll" size="26112">
-      <assemblyIdentity name="VinceSoundPlayer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VinceSoundPlayer.dll" size="27648">
+      <assemblyIdentity name="VinceSoundPlayer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>FAUVxldfZpXoMFycfMvD8UydkQM=</dsig:DigestValue>
+        <dsig:DigestValue>eNme/Xf0E2z3Ydm2pImVssZ3EIQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -158,7 +158,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ftwneE/gdVTaN3lEwjZk+qmTnLI=</dsig:DigestValue>
+        <dsig:DigestValue>8zjjgWU9utlj3pPLRYWNgG4b8xk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

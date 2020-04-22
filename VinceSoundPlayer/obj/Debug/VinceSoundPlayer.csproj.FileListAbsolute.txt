@@ -7,3 +7,12 @@ C:\Users\dalie\Source\Repos\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlay
 C:\Users\dalie\Source\Repos\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.csproj.CopyComplete
 C:\Users\dalie\Source\Repos\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.dll
 C:\Users\dalie\Source\Repos\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.pdb
+C:\Users\dalie\source\repos\karimsqualli\References\VinceSoundPlayer.dll
+C:\Users\dalie\source\repos\karimsqualli\References\VinceSoundPlayer.pdb
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.csprojAssemblyReference.cache
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.PlayerSmall.resources
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.Properties.Resources.resources
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.csproj.GenerateResource.cache
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.csproj.CopyComplete
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.dll
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\VinceSoundPlayer\obj\Debug\VinceSoundPlayer.pdb

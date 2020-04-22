@@ -21,6 +21,16 @@ namespace TreeOfLife
             FormAbout.SetSplashScreenMessage(".. Loading config ...");
             TaxonUtils.MyConfig = Config.Load("auto");
             TaxonUtils.MyConfig.ToData();
+            
+            if (! TaxonUtils.MyConfig.dataInitialized)
+            {
+                TolDatas.Init();
+            }
+
+            TolDatas.initSounds();
+            TaxonUtils.initCollections();
+
+
 
             //----- tip manager
             TipManager.Start();

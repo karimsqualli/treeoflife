@@ -94,8 +94,6 @@ namespace TreeOfLife
             }
         }
 
-        public static TolDatas Datas { get; } = new TolDatas();
-
         public static TaxonLocations Locations = null;
 
         //=========================================================================================
@@ -378,7 +376,10 @@ namespace TreeOfLife
                 MyConfig.TaxonPath = Path.GetDirectoryName(filename);
                 MyConfig.TaxonFileName = Path.GetFileName(filename);
             }
+        }
 
+        static public void initCollections()
+        {
             TaxonImages.Manager.Path = TolDatas.ImageDataPath();
             TaxonComments.Manager.Path = TolDatas.CommentDataPath();
         }
