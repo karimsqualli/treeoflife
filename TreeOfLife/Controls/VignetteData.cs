@@ -312,7 +312,7 @@ namespace TreeOfLife.Controls
 
                 if (soundPath == null || ! File.Exists(soundPath))
                 {
-                    soundPath = TolDatas.DownloadSound(CurrentTaxon);
+                    soundPath = TOLData.DownloadSound(CurrentTaxon);
                 }
 
                 SoundPlayerData.File = soundPath;

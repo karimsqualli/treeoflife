@@ -21,11 +21,11 @@ namespace TreeOfLife
         //
         static public string GetConfigFilePath() {
             //return "Config";
-            return Path.Combine(TolDatas.DataFolder(), "Config");
+            return Path.Combine(TOLData.DataFolder(), "Config");
         }
         static public string GetConfigFileName(string _name) {
             //return "Config\\TreeOfLifeConfig_" + _name + ".xml"; 
-            return Path.Combine(TolDatas.DataFolder(), "Config", "TreeOfLifeConfig_" + _name + ".xml");
+            return Path.Combine(TOLData.DataFolder(), "Config", "TreeOfLifeConfig_" + _name + ".xml");
         }
 
         public static Config MyConfig = null;
@@ -344,7 +344,7 @@ namespace TreeOfLife
         static public string GetTaxonLocationPath()
         {
             //string path = Path.Combine(GetTaxonPath(), Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName)+"_location" );
-            string path = TolDatas.LocationPath(Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName));
+            string path = TOLData.LocationPath(Path.GetFileNameWithoutExtension(MyConfig.TaxonFileName));
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             return path;
         }
@@ -380,8 +380,8 @@ namespace TreeOfLife
 
         static public void initCollections()
         {
-            TaxonImages.Manager.Path = TolDatas.ImageDataPath();
-            TaxonComments.Manager.Path = TolDatas.CommentDataPath();
+            TaxonImages.Manager.Path = TOLData.ImageDataPath();
+            TaxonComments.Manager.Path = TOLData.CommentDataPath();
         }
 
         //=========================================================================================

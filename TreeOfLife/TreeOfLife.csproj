@@ -225,6 +225,12 @@
     </Compile>
     <Compile Include="Helpers\FileSystem.cs" />
     <Compile Include="Helpers\MultiName.cs" />
+    <Compile Include="InitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitForm.Designer.cs">
+      <DependentUpon>InitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Localization\Language.cs" />
     <Compile Include="Localization\Manager.cs" />
     <Compile Include="Localization\UserControl.cs">
@@ -442,7 +448,7 @@
     <Compile Include="TipForm.Designer.cs">
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TolDatas.cs" />
+    <Compile Include="TOLData.cs" />
     <Compile Include="Tools\CheckDuplicateNames.cs" />
     <Compile Include="Tools\CheckExtinctFlags.cs" />
     <Compile Include="Tools\CheckImagesWithoutFrenchNames.cs" />
@@ -497,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitForm.resx">
+      <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -24,10 +24,10 @@ namespace TreeOfLife
             
             if (! TaxonUtils.MyConfig.dataInitialized)
             {
-                TolDatas.Init();
+                TOLData.Init();
             }
 
-            TolDatas.initSounds();
+            TOLData.initSounds();
             TaxonUtils.initCollections();
 
 

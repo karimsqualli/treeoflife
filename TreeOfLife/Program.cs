@@ -13,6 +13,7 @@ namespace TreeOfLife
         [STAThread]
         static void Main(string[] args)
         {
+
             System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("fr-FR");
             Application.CurrentCulture = cultureInfo;
             Application.EnableVisualStyles();
