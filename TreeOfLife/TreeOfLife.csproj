@@ -136,10 +136,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddTaxonForm.cs">
+    <Compile Include="TaxonDialog\AddTaxonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTaxonForm.Designer.cs">
+    <Compile Include="TaxonDialog\AddTaxonForm.Designer.cs">
       <DependentUpon>AddTaxonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
@@ -231,10 +231,10 @@
     </Compile>
     <Compile Include="Helpers\FileSystem.cs" />
     <Compile Include="Helpers\MultiName.cs" />
-    <Compile Include="InitForm.cs">
+    <Compile Include="TaxonDialog\InitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitForm.Designer.cs">
+    <Compile Include="TaxonDialog\InitForm.Designer.cs">
       <DependentUpon>InitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Localization\Language.cs" />
@@ -454,7 +454,7 @@
     <Compile Include="TipForm.Designer.cs">
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TOLData.cs" />
+    <Compile Include="TaxonDatas\TOLData.cs" />
     <Compile Include="Tools\CheckDuplicateNames.cs" />
     <Compile Include="Tools\CheckExtinctFlags.cs" />
     <Compile Include="Tools\CheckImagesWithoutFrenchNames.cs" />
@@ -488,7 +488,7 @@
     <Compile Include="Tools\UpdateSoundFlag.cs" />
     <Compile Include="Tools\_Tools.cs" />
     <Compile Include="Tools\_WorkCheck.cs" />
-    <EmbeddedResource Include="AddTaxonForm.resx">
+    <EmbeddedResource Include="TaxonDialog\AddTaxonForm.resx">
       <DependentUpon>AddTaxonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormContainer.resx">
@@ -513,7 +513,7 @@
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitForm.resx">
+    <EmbeddedResource Include="TaxonDialog\InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

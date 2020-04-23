@@ -12,15 +12,24 @@ namespace TreeOfLife
     public partial class AddTaxonForm : Form
     {
         public TaxonTreeNode node { get; set; } = null;
+        public bool classicRankSet { get; set; } = false;
+        public bool redListSet { get; set; } = false;
 
         public AddTaxonForm()
         {
             InitializeComponent();
 
+            classicRankCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            classicRankCB.Text = string.Empty;
+
             foreach (string rank in Enum.GetNames(typeof(ClassicRankEnum)))
             {
                 classicRankCB.Items.Add(rank);
             }
+
+
+            RedListCategoryCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            classicRankCB.Text = string.Empty;
 
             foreach (string category in Enum.GetNames(typeof(RedListCategoryEnum)))
             {
@@ -29,6 +38,7 @@ namespace TreeOfLife
 
             AcceptButton = addButton;
             addButton.DialogResult = DialogResult.OK;
+            addButton.Enabled = false;
             CancelButton = cancelButton;
             cancelButton.DialogResult = DialogResult.Cancel;
         }
@@ -40,12 +50,48 @@ namespace TreeOfLife
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            classicRankSet = true;
 
+            if (classicRankSet && redListSet)
+            {
+                addButton.Enabled = true;
+            }
+        }
+
+        private void RedListCategoryCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            redListSet = true;
+
+            if (classicRankSet && redListSet)
+            {
+                addButton.Enabled = true;
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Helpers.MultiName name = new Helpers.MultiName(nameTextBox.Text);
+            Console.WriteLine("cb1 : " + (classicRankCB.Text == string.Empty));
+            if (classicRankCB.Text == string.Empty)
+            {
+                errorLabel.Text = "Please select a classic rank value";
+                return;
+            }
+
+            Console.WriteLine("cb2 : " + (RedListCategory.Text == string.Empty));
+            if (RedListCategory.Text == string.Empty)
+            {
+                errorLabel.Text = "Please select a red list category";
+                return;
+            }
+
+            string nameString = nameTextBox.Text;
+
+            if (nameString == string.Empty)
+            {
+                nameString = "Unnamed";
+            }
+
+            Helpers.MultiName name = new Helpers.MultiName(nameString);
             Helpers.MultiName frenchName = new Helpers.MultiName(frenchNameTextBox.Text);
             ClassicRankEnum classicRank = ClassicRankEnum.None;
             Enum.TryParse<ClassicRankEnum>(classicRankCB.Text, out classicRank);

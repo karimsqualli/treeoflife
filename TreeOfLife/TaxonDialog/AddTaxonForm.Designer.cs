@@ -38,6 +38,7 @@
             this.RedListCategoryCB = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameLabel
@@ -107,10 +108,11 @@
             this.RedListCategoryCB.Name = "RedListCategoryCB";
             this.RedListCategoryCB.Size = new System.Drawing.Size(269, 24);
             this.RedListCategoryCB.TabIndex = 8;
+            this.RedListCategoryCB.SelectedIndexChanged += new System.EventHandler(this.RedListCategoryCB_SelectedIndexChanged);
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(49, 227);
+            this.addButton.Location = new System.Drawing.Point(49, 257);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 34);
             this.addButton.TabIndex = 9;
@@ -120,7 +122,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(166, 226);
+            this.cancelButton.Location = new System.Drawing.Point(163, 256);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 35);
             this.cancelButton.TabIndex = 10;
@@ -128,11 +130,21 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorLabel.Location = new System.Drawing.Point(13, 223);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 17);
+            this.errorLabel.TabIndex = 11;
+            // 
             // AddTaxonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 273);
+            this.ClientSize = new System.Drawing.Size(302, 303);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.RedListCategoryCB);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.ComboBox RedListCategoryCB;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
