@@ -91,3 +91,4 @@ C:\Users\dalie\Source\Repos\karimsqualli\treeoflife\TreeOfLife\obj\Debug\TreeOfL
 C:\Users\dalie\Source\Repos\karimsqualli\treeoflife\TreeOfLife\obj\Debug\TreeOfLife.exe
 C:\Users\dalie\Source\Repos\karimsqualli\treeoflife\TreeOfLife\obj\Debug\TreeOfLife.pdb
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Debug\TreeOfLife.InitForm.resources
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Debug\TreeOfLife.AddTaxonForm.resources

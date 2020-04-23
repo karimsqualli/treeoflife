@@ -61,6 +61,7 @@ namespace TreeOfLife
         public string TaxonPath = "";
         public string TaxonRelativePath = "";
         public string TaxonFileName = "";
+        public bool saved = true;
         public bool dataInitialized = false;
         public bool offline = false;
         public string rootDirectory = "";

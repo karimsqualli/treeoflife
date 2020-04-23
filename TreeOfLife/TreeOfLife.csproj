@@ -136,6 +136,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTaxonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTaxonForm.Designer.cs">
+      <DependentUpon>AddTaxonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="GUI\CheckBoxNoPadding.cs">
       <SubType>Component</SubType>
@@ -482,6 +488,9 @@
     <Compile Include="Tools\UpdateSoundFlag.cs" />
     <Compile Include="Tools\_Tools.cs" />
     <Compile Include="Tools\_WorkCheck.cs" />
+    <EmbeddedResource Include="AddTaxonForm.resx">
+      <DependentUpon>AddTaxonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormContainer.resx">
       <DependentUpon>FormContainer.cs</DependentUpon>
     </EmbeddedResource>

@@ -41,8 +41,6 @@ namespace TreeOfLife
             TOLData.initSounds();
             TaxonUtils.initCollections();
 
-
-
             //----- tip manager
             TipManager.Start();
 
@@ -643,6 +641,7 @@ namespace TreeOfLife
         //---------------------------------------------------------------------------------
         private void TaxonControlList_OnInitTaxonControlAfterLoad(object sender, TaxonControlEventArgs e)
         {
+            Console.WriteLine("type : " + e.ITC.GetType());
             if (e.ITC is TaxonGraph)
             {
                 TaxonUtils.MainGraph = e.ITC as TaxonGraph;
@@ -691,27 +690,35 @@ namespace TreeOfLife
             // create main taxon graph
             if (graph == null)
             {
-                //panel1.Controls.Clear();
-                ControlContainerTabs tabControl = null;
-                foreach (Control control in panel1.Controls)
-                    if (control is ControlContainerTabs)
-                    {
-                        tabControl = control as ControlContainerTabs;
-                        break;
-                    }
-                if (tabControl == null)
-                {
-                    tabControl = new ControlContainerTabs();
-                    tabControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                    tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-                    tabControl.Current = null;
-                    tabControl.ShowHeaderWhenOnlyOne = false;
-                    tabControl.TabIndex = 0;
-                    panel1.Controls.Add(tabControl);
-                }
-                graph = new TaxonGraphPanel();
-                tabControl.Add(graph);
+                AddGraph();
             }
+        }
+
+        private void AddGraph()
+        {
+            TaxonGraphPanel graph = null;
+            //panel1.Controls.Clear();
+            ControlContainerTabs tabControl = null;
+            foreach (Control control in panel1.Controls)
+                if (control is ControlContainerTabs)
+                {
+                    tabControl = control as ControlContainerTabs;
+                    break;
+                }
+            if (tabControl == null)
+            {
+                tabControl = new ControlContainerTabs();
+                tabControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+                tabControl.Current = null;
+                tabControl.ShowHeaderWhenOnlyOne = false;
+                tabControl.TabIndex = 0;
+                panel1.Controls.Add(tabControl);
+            }
+            graph = new TaxonGraphPanel();
+            TaxonGraph trueGraph = new TaxonGraph();
+            trueGraph.Root = TaxonUtils.Root;
+            tabControl.Add(trueGraph);
         }
 
         //=========================================================================================
@@ -777,6 +784,22 @@ namespace TreeOfLife
             TaxonControlList.OnTaxonChanged( sender, e.taxon );
         }
 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTaxonForm form = new AddTaxonForm();
+            DialogResult result = form.ShowDialog();
+            Console.WriteLine("new : ");
+
+            if (result == DialogResult.OK && form.node != null)
+            {
+                Console.WriteLine("new graph");
+                TaxonUtils.SetOriginalRoot(form.node);
+                TaxonUtils.MyConfig.TaxonFileName = "New_tree";
+                TaxonUtils.MyConfig.saved = false;
+                TaxonUtils.MainGraph.Root = form.node;
+                TaxonUtils.MainGraph.ResetView();
+            }
+        }
     }
 }
 
