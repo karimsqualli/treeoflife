@@ -174,8 +174,8 @@ namespace TreeOfLife
                 if (request == null) continue;
 
                 string comment = null;
-                // if (!GetCommentFromMemory(request.CurrentTaxon, ref comment))
-                // {
+                if (!GetCommentFromMemory(request.CurrentTaxon, ref comment))
+                {
                     CommentFileDesc commentFile = CommentFile(request.CurrentTaxon);
                     
                     if (commentFile!= null)
@@ -197,12 +197,12 @@ namespace TreeOfLife
                                 VinceToolbox.fileFunctions.readTextFile(commentFile.GetHtmlName(), ref comment);
                             }
                             comment = TransformHTMLComment(comment, commentFile);
-                            StoreCommentInMemory(request.CurrentTaxon, comment);
+                            // StoreCommentInMemory(request.CurrentTaxon, comment);
                         }
                         catch { }
                     }
-                // }
-                //request.Callback(request.Owner, request.MainTaxon, request.CurrentTaxon, comment);
+                }
+                // request.Callback(request.Owner, request.MainTaxon, request.CurrentTaxon, comment);
 
                 if (request.Result == null)
                     request.Result = new TaxonCommentRequestResult() { Main = request.MainTaxon };
@@ -214,7 +214,7 @@ namespace TreeOfLife
                     request.CurrentTaxon = request.CurrentTaxon.Father;
                     PushRequest(request);
                 }
-                else
+                else    
                     request.Callback(request.Owner, request.Result );
             }
         }

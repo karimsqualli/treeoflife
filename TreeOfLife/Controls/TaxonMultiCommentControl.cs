@@ -104,8 +104,8 @@ namespace TreeOfLife.Controls
             if (node != null)
             {
                 TaxonComments.Manager.GetComment(this, node, recursive, OnCommentLoaded);
-                BuildHtml();
-                webBrowser.DocumentText = HtmlDocument;
+                // BuildHtml();
+                // webBrowser.DocumentText = HtmlDocument;
             }
         }
 
