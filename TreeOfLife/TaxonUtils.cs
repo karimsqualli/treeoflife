@@ -21,11 +21,11 @@ namespace TreeOfLife
         //
         static public string GetConfigFilePath() {
             //return "Config";
-            return Path.Combine(TOLData.DataFolder(), "Config");
+            return Path.Combine(TOLData.appDataDirectory, "Config");
         }
         static public string GetConfigFileName(string _name) {
             //return "Config\\TreeOfLifeConfig_" + _name + ".xml"; 
-            return Path.Combine(TOLData.DataFolder(), "Config", "TreeOfLifeConfig_" + _name + ".xml");
+            return Path.Combine(TOLData.appDataDirectory, "Config", "TreeOfLifeConfig_" + _name + ".xml");
         }
 
         public static Config MyConfig = null;

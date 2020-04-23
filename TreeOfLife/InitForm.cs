@@ -97,7 +97,9 @@ namespace TreeOfLife
             }
 
             TOLData.offline = true;
-            TOLData.rootDataFolder = selectedFolder;
+            TOLData.rootDirectory = selectedFolder;
+
+            TOLData.SaveConfigAfterInitialization();
 
             return true;
         }
@@ -158,7 +160,11 @@ namespace TreeOfLife
             ZipFile zip = ZipFile.Read(zipFilePath);
             zip.ExtractAll(AppDataFolder, ExtractExistingFileAction.OverwriteSilently);
 
-            TaxonUtils.MyConfig.dataInitialized = true;
+            TOLData.offline = false;
+            TOLData.rootDirectory = TOLData.appDataDirectory;
+
+            TOLData.SaveConfigAfterInitialization();
+
             return true;
         }
 

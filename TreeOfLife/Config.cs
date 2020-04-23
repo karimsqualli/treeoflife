@@ -62,6 +62,8 @@ namespace TreeOfLife
         public string TaxonRelativePath = "";
         public string TaxonFileName = "";
         public bool dataInitialized = false;
+        public bool offline = false;
+        public string rootDirectory = "";
 
         //=========================================================================================
         // main window placement

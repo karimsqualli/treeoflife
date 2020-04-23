@@ -11,25 +11,24 @@ namespace TreeOfLife
 {
     public class TOLData
     {
-        public static string rootDataFolder { get; set; } = "";
-
-        private static string tolAppDataFolder { get; set; } = "";
         private static string soundsUrl { get; set; } = "";
 
         public static bool offline { get; set; } = false;
+        public static string rootDirectory { get; set; } = "";
+        public static string appDataDirectory { get; internal set; } = "";
 
         static TOLData()
         {
             string globalAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            tolAppDataFolder = Path.Combine(globalAppDataFolder, "TOL");
-            rootDataFolder = tolAppDataFolder;
+            appDataDirectory = Path.Combine(globalAppDataFolder, "TOL");
+            rootDirectory = appDataDirectory;
         }
 
         public static void Init()
         {
             FormAbout.SetSplashScreenMessage(".. Initializing data ...");
 
-            new InitForm(tolAppDataFolder).ShowDialog();
+            new InitForm(appDataDirectory).ShowDialog();
         }
 
         public static void initSounds()
@@ -49,16 +48,16 @@ namespace TreeOfLife
 
         public static string ImageDataPath()
         {
-            return Path.Combine(rootDataFolder, "Datas", "Images");
+            return Path.Combine(rootDirectory, "Datas", "Images");
         }
 
         internal static string CommentDataPath()
         {
-            return Path.Combine(rootDataFolder, "Datas", "Comments");
+            return Path.Combine(rootDirectory, "Datas", "Comments");
         }
 
         public static string SoundsDataPath() {
-            return Path.Combine(rootDataFolder, "Datas", "Sounds");
+            return Path.Combine(rootDirectory, "Datas", "Sounds");
         }
 
         public static string FindSound(TaxonTreeNode taxon)
@@ -77,12 +76,14 @@ namespace TreeOfLife
 
         public static string LocationPath(string taxonFileName)
         {
-            return Path.Combine(rootDataFolder, "Datas", taxonFileName + "_location");
+            return Path.Combine(rootDirectory, "Datas", taxonFileName + "_location");
         }
 
-        public static string DataFolder()
+        public static void SaveConfigAfterInitialization()
         {
-            return tolAppDataFolder;
+            TaxonUtils.MyConfig.offline = offline;
+            TaxonUtils.MyConfig.rootDirectory = rootDirectory;
+            TaxonUtils.MyConfig.dataInitialized = true;
         }
     }
 }

@@ -25,6 +25,10 @@ namespace TreeOfLife
             if (! TaxonUtils.MyConfig.dataInitialized)
             {
                 TOLData.Init();
+            } else
+            {
+                TOLData.offline = TaxonUtils.MyConfig.offline;
+                TOLData.rootDirectory = TaxonUtils.MyConfig.rootDirectory;
             }
 
             TOLData.initSounds();
