@@ -11,6 +11,8 @@ namespace TreeOfLife
 {
     public class TOLData
     {
+        public static bool quit = false;
+
         private static string soundsUrl { get; set; } = "";
 
         public static bool offline { get; set; } = false;
@@ -24,11 +26,15 @@ namespace TreeOfLife
             rootDirectory = appDataDirectory;
         }
 
-        public static void Init()
+        public static bool Init()
         {
             FormAbout.SetSplashScreenMessage(".. Initializing data ...");
 
             new InitForm(appDataDirectory).ShowDialog();
+
+            Console.WriteLine("init : " + quit);
+
+            return ! quit;
         }
 
         public static void initSounds()

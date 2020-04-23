@@ -10,6 +10,7 @@ namespace TreeOfLife
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
+        private bool quit = false;
         //---------------------------------------------------------------------------------
         // debut de database
         //Database.SQL DataBase = new Database.SQL();
@@ -21,10 +22,16 @@ namespace TreeOfLife
             FormAbout.SetSplashScreenMessage(".. Loading config ...");
             TaxonUtils.MyConfig = Config.Load("auto");
             TaxonUtils.MyConfig.ToData();
-            
+
             if (! TaxonUtils.MyConfig.dataInitialized)
             {
-                TOLData.Init();
+                quit = ! TOLData.Init();
+
+                if (quit)
+                {
+                    Shown += (sender, e) => CloseOnStart();
+                    return;
+                }
             } else
             {
                 TOLData.offline = TaxonUtils.MyConfig.offline;
@@ -87,6 +94,12 @@ namespace TreeOfLife
             taxonGraph_AddOneIfNone();
 
             Loggers.WriteInformation(LogTags.Data, "Total loading time: " + (int)((endLoad - startLoad).TotalMilliseconds));
+        }
+
+        private void CloseOnStart()
+        {
+            Close();
+            Application.Exit();
         }
 
         //---------------------------------------------------------------------------------

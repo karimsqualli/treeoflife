@@ -44,7 +44,8 @@ namespace TreeOfLife
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            TOLData.quit = true;
+            Close();
         }
 
         private void validateButton_Click(object sender, EventArgs e)
