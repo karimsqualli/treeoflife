@@ -788,11 +788,9 @@ namespace TreeOfLife
         {
             AddTaxonForm form = new AddTaxonForm();
             DialogResult result = form.ShowDialog();
-            Console.WriteLine("new : ");
 
             if (result == DialogResult.OK && form.node != null)
             {
-                Console.WriteLine("new graph");
                 TaxonUtils.SetOriginalRoot(form.node);
                 TaxonUtils.MyConfig.TaxonFileName = "New_tree";
                 TaxonUtils.MyConfig.saved = false;

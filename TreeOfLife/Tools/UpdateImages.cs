@@ -110,6 +110,7 @@ namespace TreeOfLife.Tools
                         }
 
                         name = result.TaxonName.ToLower();
+                        
                         if (dico.ContainsKey(name))
                         {
                             if (dico[name].Desc.Images == null)
