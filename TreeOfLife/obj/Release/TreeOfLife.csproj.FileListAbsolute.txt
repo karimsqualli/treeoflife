@@ -89,3 +89,5 @@ C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.exe
 C:\Users\dalie\source\repos\karimsqualli\BinAdmin\TreeOfLife.pdb
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.exe.manifest
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.application
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.AddTaxonForm.resources
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.InitForm.resources

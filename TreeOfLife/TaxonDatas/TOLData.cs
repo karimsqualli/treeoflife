@@ -1,6 +1,7 @@
 ﻿using Flurl;
 using Ionic.Zip;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
@@ -18,6 +19,8 @@ namespace TreeOfLife
         public static bool offline { get; set; } = false;
         public static string rootDirectory { get; set; } = "";
         public static string appDataDirectory { get; internal set; } = "";
+
+        public static List<string> availableSounds { get; set; } = new List<string>();
 
         static TOLData()
         {
@@ -49,6 +52,15 @@ namespace TreeOfLife
             {
                 SoundCollection result = (SoundCollection)serializer.Deserialize(fileStream);
                 soundsUrl = result.Location;
+            }
+
+            using (WebClient client = new WebClient())
+            {
+                string collection = string.Empty;
+
+                collection = client.DownloadString(soundsUrl);
+
+                availableSounds = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(collection);
             }
         }
 

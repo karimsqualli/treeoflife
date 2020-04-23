@@ -127,26 +127,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3802112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3800064">
       <assemblyIdentity name="TreeOfLife" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UzUR2BgdFQ1ym0oglE5YfRk+gys=</dsig:DigestValue>
+        <dsig:DigestValue>Cps4ROnOnHIVpKcqQ6BQ/13iPcg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VinceSoundPlayer.dll" size="27648">
-      <assemblyIdentity name="VinceSoundPlayer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VinceSoundPlayer.dll" size="26112">
+      <assemblyIdentity name="VinceSoundPlayer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>eNme/Xf0E2z3Ydm2pImVssZ3EIQ=</dsig:DigestValue>
+        <dsig:DigestValue>e6zMUo2rM3ELXMEeQwEwYVqnRQI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -205,7 +205,6 @@ namespace TreeOfLife
         ToolStripMenuItem BuildAdvancedMenu()
         {
             if (_MenuTaxonTreeNode == null) return null;
-            if (SystemConfig.IsInUserMode) return null;
 
             ToolStripMenuItem advanced = new ToolStripMenuItem("Advanced") { Name = "Advanced" };
             int countLastSeparator = 0;

@@ -44,12 +44,13 @@ C:\Users\dalie\source\repos\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.exe
 C:\Users\dalie\source\repos\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.application
 C:\Users\dalie\source\repos\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.exe
 C:\Users\dalie\source\repos\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.pdb
+C:\Users\dalie\source\repos\karimsqualli\BinUser\TreeOfLife.exe
 C:\Users\dalie\source\repos\karimsqualli\BinUser\TreeOfLife.exe.config
 C:\Users\dalie\source\repos\karimsqualli\BinUser\TreeOfLife.exe.manifest
 C:\Users\dalie\source\repos\karimsqualli\BinUser\TreeOfLife.application
-C:\Users\dalie\source\repos\karimsqualli\BinUser\TreeOfLife.exe
 C:\Users\dalie\source\repos\karimsqualli\BinUser\TreeOfLife.pdb
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.csprojAssemblyReference.cache
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.AddTaxonForm.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.GUI.FormContainer.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.Controls.TaxonListImage.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.Controls.TaxonMultiCommentControl.resources
@@ -57,6 +58,7 @@ C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\T
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.GUI.ControlContainerTabs.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.Form1.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.FormAbout.resources
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.InitForm.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.Properties.Resources.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.TaxonAscendants.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.TaxonDebugInfo.resources

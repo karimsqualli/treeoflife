@@ -41,14 +41,29 @@ namespace TreeOfLife.Tools
                 dico[node.Desc.RefMultiName.Main.ToLower()] = node;
             }
 
-            string[] files = System.IO.Directory.GetFiles(TaxonUtils.GetSoundDirectory(), "*.wma");
-
-            foreach (string file in files)
+            if (TaxonUtils.MyConfig.offline)
             {
-                string name = System.IO.Path.GetFileNameWithoutExtension(file).ToLower();
-                if (dico.ContainsKey(name))
-                    dico[name].Desc.HasSound = true;
+                string[] files = System.IO.Directory.GetFiles(TOLData.SoundsDataPath(), "*.wma");
+
+                foreach (string file in files)
+                {
+                    string name = System.IO.Path.GetFileNameWithoutExtension(file).ToLower();
+                    if (dico.ContainsKey(name))
+                        dico[name].Desc.HasSound = true;
+                }
+            } else
+            {
+                List<string> availableSounds = TOLData.availableSounds;
+
+                foreach (string name in availableSounds) {
+                    string nameLowerCase = name.ToLower();
+                    if (dico.ContainsKey(nameLowerCase))
+                    {
+                        dico[nameLowerCase].Desc.HasSound = true;
+                    }
+                }
             }
+
 
             int afterWith = 0;
             int afterWithout = 0;

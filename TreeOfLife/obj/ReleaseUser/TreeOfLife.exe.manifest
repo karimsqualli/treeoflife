@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3734016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3746304">
       <assemblyIdentity name="TreeOfLife" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Vcl+PvBxrjRXF6QLAxzmI9CK+Io=</dsig:DigestValue>
+        <dsig:DigestValue>X3c5pINo2SOTrspwB0m2r1Es5yw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,7 +146,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>86bjViRAv5jg+0H6G8MmD+yfGQQ=</dsig:DigestValue>
+        <dsig:DigestValue>MlEZ2ywJr6MKl+cuAonVx/muST0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -158,7 +158,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ftwneE/gdVTaN3lEwjZk+qmTnLI=</dsig:DigestValue>
+        <dsig:DigestValue>8zjjgWU9utlj3pPLRYWNgG4b8xk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
