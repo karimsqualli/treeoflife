@@ -21,7 +21,7 @@ namespace TreeOfLife
             //----- config
             FormAbout.SetSplashScreenMessage(".. Loading config ...");
             TaxonUtils.MyConfig = Config.Load("auto");
-            TaxonUtils.MyConfig.ToData();
+            //TaxonUtils.MyConfig.ToData();
 
             if (! TaxonUtils.MyConfig.dataInitialized)
             {
@@ -64,8 +64,10 @@ namespace TreeOfLife
                 loadedNode = TaxonTreeNode.Load(TaxonUtils.GetTaxonFileName());
             if (loadedNode == null)
             {
-                if (!TaxonTreeNode.LoadHasBeenCanceled())
+                if (!TaxonTreeNode.LoadHasBeenCanceled() && ! TaxonUtils.emptyTreeAtStartup)
+                {
                     Loggers.WriteError(LogTags.Data, "Cannot open taxon file data : \n\n    " + TaxonUtils.GetTaxonFileName());
+                }
             }
             else
             {

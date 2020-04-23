@@ -70,14 +70,12 @@ namespace TreeOfLife
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("cb1 : " + (classicRankCB.Text == string.Empty));
             if (classicRankCB.Text == string.Empty)
             {
                 errorLabel.Text = "Please select a classic rank value";
                 return;
             }
 
-            Console.WriteLine("cb2 : " + (RedListCategory.Text == string.Empty));
             if (RedListCategory.Text == string.Empty)
             {
                 errorLabel.Text = "Please select a red list category";

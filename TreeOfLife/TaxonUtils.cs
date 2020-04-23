@@ -725,5 +725,7 @@ namespace TreeOfLife
             if ((sender is ToolStripMenuItem) && ((sender as ToolStripMenuItem).Tag is TaxonTreeNode))
                 FavoritesAdd((sender as ToolStripMenuItem).Tag as TaxonTreeNode);
         }
+
+        public static bool emptyTreeAtStartup { get; set; } = false;
     }
 }

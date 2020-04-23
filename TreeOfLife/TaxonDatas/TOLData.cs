@@ -9,7 +9,7 @@ using TreeOfLife.TaxonDatas;
 
 namespace TreeOfLife
 {
-    public class TOLData
+    public static class TOLData
     {
         public static bool quit = false;
 

@@ -16,6 +16,7 @@ namespace TreeOfLife
     public partial class InitForm : Form
     {
         public string AppDataFolder { get; set; } = "";
+        private bool emptyTree { get; set; } = false;
 
         public InitForm(string appDataFolder)
         {
@@ -63,6 +64,10 @@ namespace TreeOfLife
 
             if (success)
             {
+                if (emptyTree)
+                {
+                    TaxonUtils.emptyTreeAtStartup = true;
+                }
                 Close();
             }
         }
@@ -182,6 +187,24 @@ namespace TreeOfLife
 
                 dataDirectoryTextBox.Text = dialog.SelectedPath;
             }
+        }
+
+        private void loadTreeFileButon_Click(object sender, EventArgs e)
+        {
+            TaxonUtils.TaxonDataInit();
+            treeFileNameTextBox.Text = TaxonUtils.GetTaxonFileName();
+        }
+
+        private void loadTreeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            loadTreeFileButon.Enabled = false;
+            emptyTree = false;
+        }
+
+        private void emptyTreeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            loadTreeFileButon.Enabled = true;
+            emptyTree = true;
         }
     }
 }

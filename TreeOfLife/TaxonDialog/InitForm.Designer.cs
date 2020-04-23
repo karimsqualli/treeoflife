@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.modeGroupBox = new System.Windows.Forms.GroupBox();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.validateButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.selectDataDirectoryButton = new System.Windows.Forms.Button();
@@ -36,15 +37,18 @@
             this.urlServerTextBox = new System.Windows.Forms.TextBox();
             this.offlineModeButton = new System.Windows.Forms.RadioButton();
             this.onlineModeButton = new System.Windows.Forms.RadioButton();
-            this.errorLabel = new System.Windows.Forms.Label();
+            this.treeGroupBox = new System.Windows.Forms.GroupBox();
+            this.loadTreeRadioButton = new System.Windows.Forms.RadioButton();
+            this.emptyTreeRadioButton = new System.Windows.Forms.RadioButton();
+            this.treeFileNameTextBox = new System.Windows.Forms.TextBox();
+            this.loadTreeFileButon = new System.Windows.Forms.Button();
             this.modeGroupBox.SuspendLayout();
+            this.treeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // modeGroupBox
             // 
             this.modeGroupBox.Controls.Add(this.errorLabel);
-            this.modeGroupBox.Controls.Add(this.validateButton);
-            this.modeGroupBox.Controls.Add(this.quitButton);
             this.modeGroupBox.Controls.Add(this.selectDataDirectoryButton);
             this.modeGroupBox.Controls.Add(this.dataDirectoryTextBox);
             this.modeGroupBox.Controls.Add(this.urlServerTextBox);
@@ -52,14 +56,23 @@
             this.modeGroupBox.Controls.Add(this.onlineModeButton);
             this.modeGroupBox.Location = new System.Drawing.Point(12, 12);
             this.modeGroupBox.Name = "modeGroupBox";
-            this.modeGroupBox.Size = new System.Drawing.Size(776, 426);
+            this.modeGroupBox.Size = new System.Drawing.Size(558, 191);
             this.modeGroupBox.TabIndex = 0;
             this.modeGroupBox.TabStop = false;
             this.modeGroupBox.Text = "Sélection du mode d\'initialisation";
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Crimson;
+            this.errorLabel.Location = new System.Drawing.Point(3, 215);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 17);
+            this.errorLabel.TabIndex = 7;
+            // 
             // validateButton
             // 
-            this.validateButton.Location = new System.Drawing.Point(181, 263);
+            this.validateButton.Location = new System.Drawing.Point(193, 359);
             this.validateButton.Name = "validateButton";
             this.validateButton.Size = new System.Drawing.Size(75, 23);
             this.validateButton.TabIndex = 6;
@@ -69,7 +82,7 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(272, 263);
+            this.quitButton.Location = new System.Drawing.Point(300, 359);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 5;
@@ -127,25 +140,76 @@
             this.onlineModeButton.UseVisualStyleBackColor = true;
             this.onlineModeButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // errorLabel
+            // treeGroupBox
             // 
-            this.errorLabel.AutoSize = true;
-            this.errorLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.errorLabel.Location = new System.Drawing.Point(3, 215);
-            this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(0, 17);
-            this.errorLabel.TabIndex = 7;
+            this.treeGroupBox.Controls.Add(this.loadTreeFileButon);
+            this.treeGroupBox.Controls.Add(this.treeFileNameTextBox);
+            this.treeGroupBox.Controls.Add(this.emptyTreeRadioButton);
+            this.treeGroupBox.Controls.Add(this.loadTreeRadioButton);
+            this.treeGroupBox.Location = new System.Drawing.Point(12, 210);
+            this.treeGroupBox.Name = "treeGroupBox";
+            this.treeGroupBox.Size = new System.Drawing.Size(548, 143);
+            this.treeGroupBox.TabIndex = 7;
+            this.treeGroupBox.TabStop = false;
+            this.treeGroupBox.Text = "Tree";
+            // 
+            // loadTreeRadioButton
+            // 
+            this.loadTreeRadioButton.AutoSize = true;
+            this.loadTreeRadioButton.Checked = true;
+            this.loadTreeRadioButton.Location = new System.Drawing.Point(10, 22);
+            this.loadTreeRadioButton.Name = "loadTreeRadioButton";
+            this.loadTreeRadioButton.Size = new System.Drawing.Size(102, 21);
+            this.loadTreeRadioButton.TabIndex = 0;
+            this.loadTreeRadioButton.TabStop = true;
+            this.loadTreeRadioButton.Text = "Load a tree";
+            this.loadTreeRadioButton.UseVisualStyleBackColor = true;
+            this.loadTreeRadioButton.CheckedChanged += new System.EventHandler(this.loadTreeRadioButton_CheckedChanged);
+            // 
+            // emptyTreeRadioButton
+            // 
+            this.emptyTreeRadioButton.AutoSize = true;
+            this.emptyTreeRadioButton.Location = new System.Drawing.Point(10, 88);
+            this.emptyTreeRadioButton.Name = "emptyTreeRadioButton";
+            this.emptyTreeRadioButton.Size = new System.Drawing.Size(97, 21);
+            this.emptyTreeRadioButton.TabIndex = 1;
+            this.emptyTreeRadioButton.Text = "Empty tree";
+            this.emptyTreeRadioButton.UseVisualStyleBackColor = true;
+            this.emptyTreeRadioButton.CheckedChanged += new System.EventHandler(this.emptyTreeRadioButton_CheckedChanged);
+            // 
+            // treeFileNameTextBox
+            // 
+            this.treeFileNameTextBox.Enabled = false;
+            this.treeFileNameTextBox.Location = new System.Drawing.Point(10, 50);
+            this.treeFileNameTextBox.Name = "treeFileNameTextBox";
+            this.treeFileNameTextBox.Size = new System.Drawing.Size(246, 22);
+            this.treeFileNameTextBox.TabIndex = 2;
+            // 
+            // loadTreeFileButon
+            // 
+            this.loadTreeFileButon.Location = new System.Drawing.Point(272, 48);
+            this.loadTreeFileButon.Name = "loadTreeFileButon";
+            this.loadTreeFileButon.Size = new System.Drawing.Size(276, 23);
+            this.loadTreeFileButon.TabIndex = 3;
+            this.loadTreeFileButon.Text = "Sélectionner";
+            this.loadTreeFileButon.UseVisualStyleBackColor = true;
+            this.loadTreeFileButon.Click += new System.EventHandler(this.loadTreeFileButon_Click);
             // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 353);
+            this.ClientSize = new System.Drawing.Size(582, 394);
+            this.Controls.Add(this.treeGroupBox);
             this.Controls.Add(this.modeGroupBox);
+            this.Controls.Add(this.quitButton);
+            this.Controls.Add(this.validateButton);
             this.Name = "InitForm";
             this.Text = "Initialisation treeOfLife";
             this.modeGroupBox.ResumeLayout(false);
             this.modeGroupBox.PerformLayout();
+            this.treeGroupBox.ResumeLayout(false);
+            this.treeGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +225,10 @@
         private System.Windows.Forms.Button validateButton;
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.GroupBox treeGroupBox;
+        private System.Windows.Forms.Button loadTreeFileButon;
+        private System.Windows.Forms.TextBox treeFileNameTextBox;
+        private System.Windows.Forms.RadioButton emptyTreeRadioButton;
+        private System.Windows.Forms.RadioButton loadTreeRadioButton;
     }
 }
