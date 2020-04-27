@@ -18,29 +18,6 @@ namespace TreeOfLife
         //---------------------------------------------------------------------------------
         public Form1(string[] args)
         {
-            //----- config
-            FormAbout.SetSplashScreenMessage(".. Loading config ...");
-            TaxonUtils.MyConfig = Config.Load("auto");
-            //TaxonUtils.MyConfig.ToData();
-
-            if (! TaxonUtils.MyConfig.dataInitialized)
-            {
-                quit = ! TOLData.Init();
-
-                if (quit)
-                {
-                    Shown += (sender, e) => CloseOnStart();
-                    return;
-                }
-            } else
-            {
-                TOLData.offline = TaxonUtils.MyConfig.offline;
-                TOLData.rootDirectory = TaxonUtils.MyConfig.rootDirectory;
-            }
-
-            TOLData.initSounds();
-            TaxonUtils.initCollections();
-
             //----- tip manager
             TipManager.Start();
 
@@ -64,7 +41,7 @@ namespace TreeOfLife
                 loadedNode = TaxonTreeNode.Load(TaxonUtils.GetTaxonFileName());
             if (loadedNode == null)
             {
-                if (!TaxonTreeNode.LoadHasBeenCanceled() && ! TaxonUtils.emptyTreeAtStartup)
+                if (!TaxonTreeNode.LoadHasBeenCanceled() && ! TaxonUtils.MyConfig.emptyTreeAtStartup)
                 {
                     Loggers.WriteError(LogTags.Data, "Cannot open taxon file data : \n\n    " + TaxonUtils.GetTaxonFileName());
                 }
@@ -800,7 +777,7 @@ namespace TreeOfLife
 
             TaxonTreeNode root = new TaxonTreeNode(desc);
             TaxonUtils.SetOriginalRoot(root);
-            TaxonUtils.MyConfig.TaxonFileName = "New_tree";
+            TaxonUtils.MyConfig.TaxonFileName = "";
             TaxonUtils.MyConfig.saved = false;
             TaxonUtils.MainGraph.Root = root;
             TaxonUtils.MainGraph.ResetView();

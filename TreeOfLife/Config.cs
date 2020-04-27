@@ -206,6 +206,7 @@ namespace TreeOfLife
         // collection window options
         //
         public GenerateNewDatabaseConfig GenerateNewDatabaseConfig;
+        public bool emptyTreeAtStartup = false;
 
         //=========================================================================================
         // configto UI and UI to config functions

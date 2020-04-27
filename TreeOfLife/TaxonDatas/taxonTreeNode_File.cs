@@ -380,6 +380,7 @@ namespace TreeOfLife
         //
         public static TaxonTreeNode Load(string _fileName)
         {
+            if (_fileName == string.Empty) return null;
             DateTime ts_Start = DateTime.Now;
             if (!File.Exists(_fileName)) return null;
             Cursor.Current = Cursors.WaitCursor;

@@ -91,3 +91,4 @@ C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeO
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.application
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.AddTaxonForm.resources
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.InitForm.resources
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\Release\TreeOfLife.Controls.DataSettingsControl.resources

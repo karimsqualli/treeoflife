@@ -92,3 +92,4 @@ C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\T
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.application
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.exe
 C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.pdb
+C:\Users\dalie\source\repos\karimsqualli\treeoflife\TreeOfLife\obj\ReleaseUser\TreeOfLife.Controls.DataSettingsControl.resources

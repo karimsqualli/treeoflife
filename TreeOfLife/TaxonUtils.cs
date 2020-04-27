@@ -422,6 +422,9 @@ namespace TreeOfLife
             else if (extension == ".tol")
                 _node.SaveBin(filename);
             Cursor.Current = Cursors.Default;
+
+            TaxonUtils.MyConfig.emptyTreeAtStartup = false;
+
             return true;
         }
 

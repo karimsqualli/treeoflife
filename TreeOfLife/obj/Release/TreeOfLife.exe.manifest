@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3746304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreeOfLife.exe" size="3746816">
       <assemblyIdentity name="TreeOfLife" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>91COovLKurrHhxBYDPLvMug0tj8=</dsig:DigestValue>
+        <dsig:DigestValue>pkcXnb3WhZ0L8xghmx+xc5+LbGA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,7 +146,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>S0VhL2WSTuGrskdwOUS3YbROS4Y=</dsig:DigestValue>
+        <dsig:DigestValue>CvvtlxpVZru1LeepJlwk+TZ3Rzg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

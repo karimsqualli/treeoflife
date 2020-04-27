@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,7 +14,6 @@ namespace TreeOfLife
         [STAThread]
         static void Main(string[] args)
         {
-
             System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("fr-FR");
             Application.CurrentCulture = cultureInfo;
             Application.EnableVisualStyles();
@@ -29,15 +29,40 @@ namespace TreeOfLife
             SystemConfig.OnRunningModeChanged += Loggers_OnRunningModeChanged;
 
             Loggers.WriteInformation("Starting TreeOfLife : " + DateTime.Now.ToLongDateString());
-            FormAbout.DoSplashScreen();
-            FormAbout.SetSplashScreenMessage(".. Starting TreeOfLife ...");
 #if USER
             SystemConfig.RunningMode = SystemConfig.RunningModeEnum.User;
 #else
             SystemConfig.RunningMode = SystemConfig.RunningModeEnum.Admin;
 #endif
+            TaxonUtils.MyConfig = Config.Load("auto");
+            // TaxonUtils.MyConfig.ToData();
 
-            Application.Run(new Form1(args));
+            bool quit = false;
+            if (!TaxonUtils.MyConfig.dataInitialized)
+            {
+                quit = ! TOLData.Init();
+            }
+            else
+            {
+                TOLData.offline = TaxonUtils.MyConfig.offline;
+                TOLData.rootDirectory = TaxonUtils.MyConfig.rootDirectory;
+            }
+
+            if (! quit)
+            {
+
+                TOLData.initSounds();
+
+
+                FormAbout.DoSplashScreen();
+                //----- config
+                FormAbout.SetSplashScreenMessage(".. Loading config ...");
+
+                TaxonUtils.initCollections();
+
+                Application.Run(new Form1(args));
+            }
+
         }
 
         private static void Loggers_OnRunningModeChanged(object sender, EventArgs e)

@@ -136,6 +136,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DataSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DataSettingsControl.Designer.cs">
+      <DependentUpon>DataSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TaxonDialog\AddTaxonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,6 +494,9 @@
     <Compile Include="Tools\UpdateSoundFlag.cs" />
     <Compile Include="Tools\_Tools.cs" />
     <Compile Include="Tools\_WorkCheck.cs" />
+    <EmbeddedResource Include="Controls\DataSettingsControl.resx">
+      <DependentUpon>DataSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TaxonDialog\AddTaxonForm.resx">
       <DependentUpon>AddTaxonForm.cs</DependentUpon>
     </EmbeddedResource>

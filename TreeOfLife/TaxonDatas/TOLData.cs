@@ -33,7 +33,7 @@ namespace TreeOfLife
         {
             FormAbout.SetSplashScreenMessage(".. Initializing data ...");
 
-            new InitForm(appDataDirectory).ShowDialog();
+            new InitForm().ShowDialog();
 
             Console.WriteLine("init : " + quit);
 
