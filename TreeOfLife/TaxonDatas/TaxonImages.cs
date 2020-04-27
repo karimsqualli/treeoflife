@@ -412,7 +412,7 @@ namespace TreeOfLife
                 }
             } catch (WebException exception)
             {
-                Loggers.WriteWarning(LogTags.Image, "Unable to download image file : " + link);
+                Loggers.WriteWarning(LogTags.Image, "Unable to download image file : " + link + " reason is : " + exception.ToString());
                 data.LoadedImage = null;
             }
         }

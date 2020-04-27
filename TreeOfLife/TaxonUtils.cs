@@ -5,6 +5,9 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
+using Flurl;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace TreeOfLife
 {
@@ -39,6 +42,24 @@ namespace TreeOfLife
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             return path;
+        }
+
+        internal static bool CheckConnection()
+        {
+            string url = Url.Combine(MyConfig.serverUrl, "state");
+
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    JObject stateObject = Newtonsoft.Json.JsonConvert.DeserializeObject<JObject>(client.DownloadString(url));
+                    string state = (string)stateObject["state"];
+                    return state == "up";
+                }
+            } catch (WebException e)
+            {
+                return false;
+            }
         }
 
         //=========================================================================================

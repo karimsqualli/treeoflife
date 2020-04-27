@@ -114,6 +114,7 @@ namespace TreeOfLife.Controls
 
             TOLData.offline = false;
             TOLData.rootDirectory = TOLData.appDataDirectory;
+            TOLData.serverUrl = urlServerTextBox.Text;
 
             TOLData.SaveConfigAfterInitialization();
 

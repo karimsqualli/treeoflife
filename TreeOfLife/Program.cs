@@ -37,10 +37,21 @@ namespace TreeOfLife
             TaxonUtils.MyConfig = Config.Load("auto");
             // TaxonUtils.MyConfig.ToData();
 
-            bool quit = false;
+            //Console.WriteLine(TaxonUtils.);
+            if (! TaxonUtils.MyConfig.offline)
+            {
+                bool ok = TaxonUtils.CheckConnection();
+                if (! ok)
+                {
+                    TaxonUtils.MyConfig.dataInitialized = false;
+                    Console.WriteLine(TaxonUtils.MyConfig.dataInitialized);
+                }
+            }
+
+            InitForm initForm = new InitForm();
             if (!TaxonUtils.MyConfig.dataInitialized)
             {
-                quit = ! TOLData.Init();
+                initForm.ShowDialog();
             }
             else
             {
@@ -48,7 +59,7 @@ namespace TreeOfLife
                 TOLData.rootDirectory = TaxonUtils.MyConfig.rootDirectory;
             }
 
-            if (! quit)
+            if (! initForm.quit)
             {
 
                 TOLData.initSounds();

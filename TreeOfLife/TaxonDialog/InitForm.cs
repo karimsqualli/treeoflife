@@ -15,6 +15,7 @@ namespace TreeOfLife
     public partial class InitForm : Localization.Form
     {
         private bool emptyTree { get; set; } = false;
+        public bool quit { get; set; } = false;
 
         public InitForm()
         {
@@ -25,15 +26,15 @@ namespace TreeOfLife
 
         private void validateButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("FOOOO");
             validateButton.Enabled = false;
             bool success = dataSettingsControl1.updateData();
-            Console.WriteLine("success : " + success + " : ");
+            
             if (success)
             {
                 if (emptyTree)
                 {
                     TaxonUtils.MyConfig.emptyTreeAtStartup = true;
+                    TaxonUtils.MyConfig.TaxonFileName = "";
                 }
                 Close();
             } else
@@ -62,7 +63,7 @@ namespace TreeOfLife
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TOLData.quit = true;
+            quit = true;
             Close();
         }
     }

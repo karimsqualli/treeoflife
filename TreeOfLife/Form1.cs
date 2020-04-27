@@ -10,7 +10,6 @@ namespace TreeOfLife
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
-        private bool quit = false;
         //---------------------------------------------------------------------------------
         // debut de database
         //Database.SQL DataBase = new Database.SQL();

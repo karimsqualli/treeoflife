@@ -12,7 +12,7 @@ namespace TreeOfLife
 {
     public static class TOLData
     {
-        public static bool quit = false;
+        public static string serverUrl = "";
 
         private static string soundsUrl { get; set; } = "";
 
@@ -27,17 +27,6 @@ namespace TreeOfLife
             string globalAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             appDataDirectory = Path.Combine(globalAppDataFolder, "TOL");
             rootDirectory = appDataDirectory;
-        }
-
-        public static bool Init()
-        {
-            FormAbout.SetSplashScreenMessage(".. Initializing data ...");
-
-            new InitForm().ShowDialog();
-
-            Console.WriteLine("init : " + quit);
-
-            return ! quit;
         }
 
         public static void initSounds()
@@ -102,6 +91,8 @@ namespace TreeOfLife
             TaxonUtils.MyConfig.offline = offline;
             TaxonUtils.MyConfig.rootDirectory = rootDirectory;
             TaxonUtils.MyConfig.dataInitialized = true;
+            TaxonUtils.MyConfig.serverUrl = serverUrl;
+
         }
     }
 }
