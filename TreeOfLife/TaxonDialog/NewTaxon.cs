@@ -50,17 +50,20 @@ namespace TreeOfLife.TaxonDialog
             TaxonName = textBox1.Text.Trim();
             if (!CreateUnnamed && CheckNameUsage)
             {
-                TaxonTreeNode otherNode = TaxonUtils.Root.FindTaxonByName(TaxonName.ToLower());
-                if (otherNode != null)
+                if (TaxonUtils.Root != null)
                 {
-                    string message = "Name is already used, Create anyway ?";
-                    message += "\n\nClick no to change name, Cancel to abort creation";
-                    result = MessageBox.Show(message, "Warning !", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                    if (result == DialogResult.No)
-                        return;
+                    TaxonTreeNode otherNode = TaxonUtils.Root.FindTaxonByName(TaxonName.ToLower());
+                    if (otherNode != null)
+                    {
+                        string message = "Name is already used, Create anyway ?";
+                        message += "\n\nClick no to change name, Cancel to abort creation";
+                        result = MessageBox.Show(message, "Warning !", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        if (result == DialogResult.No)
+                            return;
 
-                    if (result == DialogResult.Yes)
-                        result = DialogResult.OK;
+                        if (result == DialogResult.Yes)
+                            result = DialogResult.OK;
+                    }
                 }
             }
 

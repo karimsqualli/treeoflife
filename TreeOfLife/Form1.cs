@@ -263,8 +263,8 @@ namespace TreeOfLife
         private void fileToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             bool userMode = SystemConfig.IsInUserMode;
-            saveToolStripMenuItem.Visible = !userMode;
-            saveAsToolStripMenuItem.Visible = !userMode;
+            saveToolStripMenuItem.Visible = true;
+            saveAsToolStripMenuItem.Visible = true;
             importOpenTreeOToolStripMenuItem.Visible = !userMode;
             fileSeparator1MenuItem.Visible = !userMode;
             createNewTreeToolStripMenuItem.Visible = !userMode;
@@ -788,17 +788,22 @@ namespace TreeOfLife
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTaxonForm form = new AddTaxonForm();
-            DialogResult result = form.ShowDialog();
-
-            if (result == DialogResult.OK && form.node != null)
+            TaxonDialog.NewTaxon dlg = new TaxonDialog.NewTaxon(null)
             {
-                TaxonUtils.SetOriginalRoot(form.node);
-                TaxonUtils.MyConfig.TaxonFileName = "New_tree";
-                TaxonUtils.MyConfig.saved = false;
-                TaxonUtils.MainGraph.Root = form.node;
-                TaxonUtils.MainGraph.ResetView();
-            }
+                TopMost = true,
+                CheckNameUsage = true
+            };
+            dlg.ShowDialog();
+            if (dlg.DialogResult != DialogResult.OK) return;
+
+            TaxonDesc desc = new TaxonDesc(dlg.TaxonName);
+
+            TaxonTreeNode root = new TaxonTreeNode(desc);
+            TaxonUtils.SetOriginalRoot(root);
+            TaxonUtils.MyConfig.TaxonFileName = "New_tree";
+            TaxonUtils.MyConfig.saved = false;
+            TaxonUtils.MainGraph.Root = root;
+            TaxonUtils.MainGraph.ResetView();
         }
     }
 }

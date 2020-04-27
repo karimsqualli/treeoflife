@@ -51,6 +51,7 @@ namespace TreeOfLife
 
         private void validateButton_Click(object sender, EventArgs e)
         {
+            validateButton.Enabled = false;
             bool success = false;
             bool offline = offlineModeButton.Checked;
 
@@ -69,6 +70,9 @@ namespace TreeOfLife
                     TaxonUtils.emptyTreeAtStartup = true;
                 }
                 Close();
+            } else
+            {
+                validateButton.Enabled = true;
             }
         }
 

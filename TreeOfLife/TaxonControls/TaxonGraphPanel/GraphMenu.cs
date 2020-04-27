@@ -577,17 +577,28 @@ namespace TreeOfLife
         {
             if (_taxon == null) return;
 
-            AddTaxonForm form = new AddTaxonForm();
-            DialogResult result = form.ShowDialog();
-
-            if (result == DialogResult.OK && form.node != null)
+            string firstName = null;
+            if (_taxon.Desc.ClassicRank == ClassicRankEnum.Genre)
+                firstName = _taxon.Desc.RefMainName;
+            TaxonDialog.NewTaxon dlg = new TaxonDialog.NewTaxon(firstName)
             {
-                TaxonTreeNode node = form.node;
-                _taxon.AddChild(node);
-                _taxon.SortChildren();
-                _taxon.Expand();
-                RefreshGraph();
-            }
+                TopMost = true,
+                CheckNameUsage = true
+            };
+            dlg.ShowDialog();
+            if (dlg.DialogResult != DialogResult.OK) return;
+
+            TaxonDesc newTaxon = new TaxonDesc(dlg.TaxonName);
+            if (_taxon.Desc.ClassicRank == ClassicRankEnum.Genre)
+                newTaxon.ClassicRank = ClassicRankEnum.Espece;
+            else if (_taxon.Desc.ClassicRank == ClassicRankEnum.Espece)
+                newTaxon.ClassicRank = ClassicRankEnum.SousEspece;
+
+            TaxonTreeNode newNode = new TaxonTreeNode(newTaxon);
+            _taxon.AddChild(newNode);
+            _taxon.SortChildren();
+            _taxon.Expand();
+            RefreshGraph();
         }
         public void MenuAddChild_Click(object sender, EventArgs e) { AddChild(_MenuTaxonTreeNode); }
     }
