@@ -185,8 +185,8 @@ namespace TreeOfLife
             
 
             // file / load menu
-            fileToolStripMenuItem.Visible = true;
-            userModeLoadToolStripMenuItem.Visible = false;
+            fileToolStripMenuItem.Visible = ! userMode;
+            userModeLoadToolStripMenuItem.Visible = userMode;
 
             // database menu
             databaseToolStripMenuItem.Visible = false;
