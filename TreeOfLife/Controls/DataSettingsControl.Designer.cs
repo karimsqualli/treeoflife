@@ -51,7 +51,7 @@
             this.modeGroupBox.Size = new System.Drawing.Size(558, 239);
             this.modeGroupBox.TabIndex = 1;
             this.modeGroupBox.TabStop = false;
-            this.modeGroupBox.Text = "Sélection du mode d\'initialisation des données";
+            this.modeGroupBox.Text = "Selection of data initialization mode";
             // 
             // errorLabel
             // 
@@ -68,7 +68,7 @@
             this.selectDataDirectoryButton.Name = "selectDataDirectoryButton";
             this.selectDataDirectoryButton.Size = new System.Drawing.Size(276, 23);
             this.selectDataDirectoryButton.TabIndex = 4;
-            this.selectDataDirectoryButton.Text = "Sélectionner le répertoire de données ...";
+            this.selectDataDirectoryButton.Text = "Select data directory ...";
             this.selectDataDirectoryButton.UseVisualStyleBackColor = true;
             this.selectDataDirectoryButton.Click += new System.EventHandler(this.selectDataDirectoryButton_Click);
             // 
@@ -92,10 +92,10 @@
             this.offlineModeButton.AutoSize = true;
             this.offlineModeButton.Location = new System.Drawing.Point(0, 113);
             this.offlineModeButton.Name = "offlineModeButton";
-            this.offlineModeButton.Size = new System.Drawing.Size(130, 21);
+            this.offlineModeButton.Size = new System.Drawing.Size(109, 21);
             this.offlineModeButton.TabIndex = 1;
             this.offlineModeButton.TabStop = true;
-            this.offlineModeButton.Text = "Mode hors ligne";
+            this.offlineModeButton.Text = "Offline mode";
             this.offlineModeButton.UseVisualStyleBackColor = true;
             this.offlineModeButton.CheckedChanged += new System.EventHandler(this.offlineModeButton_CheckedChanged);
             // 
@@ -105,10 +105,10 @@
             this.onlineModeButton.Checked = true;
             this.onlineModeButton.Location = new System.Drawing.Point(6, 31);
             this.onlineModeButton.Name = "onlineModeButton";
-            this.onlineModeButton.Size = new System.Drawing.Size(118, 21);
+            this.onlineModeButton.Size = new System.Drawing.Size(109, 21);
             this.onlineModeButton.TabIndex = 0;
             this.onlineModeButton.TabStop = true;
-            this.onlineModeButton.Text = "Mode en ligne";
+            this.onlineModeButton.Text = "Online mode";
             this.onlineModeButton.UseVisualStyleBackColor = true;
             this.onlineModeButton.CheckedChanged += new System.EventHandler(this.onlineModeButton_CheckedChanged);
             // 

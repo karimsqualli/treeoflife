@@ -45,7 +45,7 @@
             this.validateButton.Name = "validateButton";
             this.validateButton.Size = new System.Drawing.Size(75, 23);
             this.validateButton.TabIndex = 6;
-            this.validateButton.Text = "Valider";
+            this.validateButton.Text = "Validate";
             this.validateButton.UseVisualStyleBackColor = true;
             this.validateButton.Click += new System.EventHandler(this.validateButton_Click);
             // 
@@ -55,7 +55,7 @@
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 5;
-            this.quitButton.Text = "Quitter";
+            this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = true;
             this.quitButton.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -78,7 +78,7 @@
             this.loadTreeFileButon.Name = "loadTreeFileButon";
             this.loadTreeFileButon.Size = new System.Drawing.Size(276, 23);
             this.loadTreeFileButon.TabIndex = 3;
-            this.loadTreeFileButon.Text = "Sélectionner";
+            this.loadTreeFileButon.Text = "Select ...";
             this.loadTreeFileButon.UseVisualStyleBackColor = true;
             this.loadTreeFileButon.Click += new System.EventHandler(this.loadTreeFileButon_Click);
             // 
@@ -120,7 +120,6 @@
             this.dataSettingsControl1.Name = "dataSettingsControl1";
             this.dataSettingsControl1.Size = new System.Drawing.Size(566, 242);
             this.dataSettingsControl1.TabIndex = 8;
-            this.dataSettingsControl1.Load += new System.EventHandler(this.dataSettingsControl1_Load);
             // 
             // InitForm
             // 
@@ -132,7 +131,7 @@
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.validateButton);
             this.Name = "InitForm";
-            this.Text = "Initialisation treeOfLife";
+            this.Text = "TreeOfLife";
             this.treeGroupBox.ResumeLayout(false);
             this.treeGroupBox.PerformLayout();
             this.ResumeLayout(false);
