@@ -65,6 +65,7 @@ namespace TreeOfLife
         public bool dataInitialized = false;
         public bool offline = false;
         public string rootDirectory = "";
+        public string serverUrl;
 
         //=========================================================================================
         // main window placement
@@ -207,7 +208,6 @@ namespace TreeOfLife
         //
         public GenerateNewDatabaseConfig GenerateNewDatabaseConfig;
         public bool emptyTreeAtStartup = false;
-        internal string serverUrl;
 
         //=========================================================================================
         // configto UI and UI to config functions

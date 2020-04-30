@@ -41,6 +41,7 @@ namespace TreeOfLife
             if (! TaxonUtils.MyConfig.offline)
             {
                 bool ok = TaxonUtils.CheckConnection();
+
                 if (! ok)
                 {
                     TaxonUtils.MyConfig.dataInitialized = false;
@@ -52,11 +53,12 @@ namespace TreeOfLife
             if (!TaxonUtils.MyConfig.dataInitialized)
             {
                 initForm.ShowDialog();
+                TaxonUtils.MyConfig.rootDirectory = TOLData.AppDataDirectory();
+                Console.WriteLine(TaxonUtils.MyConfig.rootDirectory);
             }
             else
             {
                 TOLData.offline = TaxonUtils.MyConfig.offline;
-                TOLData.rootDirectory = TaxonUtils.MyConfig.rootDirectory;
             }
 
             if (! initForm.quit)

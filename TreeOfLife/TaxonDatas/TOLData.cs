@@ -17,16 +17,13 @@ namespace TreeOfLife
         private static string soundsUrl { get; set; } = "";
 
         public static bool offline { get; set; } = false;
-        public static string rootDirectory { get; set; } = "";
-        public static string appDataDirectory { get; internal set; } = "";
 
         public static List<string> availableSounds { get; set; } = new List<string>();
 
-        static TOLData()
+        public static string AppDataDirectory()
         {
             string globalAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            appDataDirectory = Path.Combine(globalAppDataFolder, "TOL");
-            rootDirectory = appDataDirectory;
+            return Path.Combine(globalAppDataFolder, "TOL");
         }
 
         public static void initSounds()
@@ -43,38 +40,51 @@ namespace TreeOfLife
                 soundsUrl = result.Location;
             }
 
-            using (WebClient client = new WebClient())
+            try
             {
-                string collection = string.Empty;
+                using (WebClient client = new WebClient())
+                {
+                    string collection = string.Empty;
 
-                collection = client.DownloadString(soundsUrl);
+                    collection = client.DownloadString(soundsUrl);
 
-                availableSounds = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(collection);
+                    availableSounds = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(collection);
+                }
+            } catch (WebException e)
+            {
+                Loggers.WriteError(LogTags.Sound, "Unable to fetch sound collection from server. Reason is " + e.ToString());
             }
         }
 
         public static string ImageDataPath()
         {
-            return Path.Combine(rootDirectory, "Datas", "Images");
+            return Path.Combine(TaxonUtils.MyConfig.rootDirectory, "Datas", "Images");
         }
 
         internal static string CommentDataPath()
         {
-            return Path.Combine(rootDirectory, "Datas", "Comments");
+            return Path.Combine(TaxonUtils.MyConfig.rootDirectory, "Datas", "Comments");
         }
 
         public static string SoundsDataPath() {
-            return Path.Combine(rootDirectory, "Datas", "Sounds");
+            return Path.Combine(TaxonUtils.MyConfig.rootDirectory, "Datas", "Sounds");
+        }
+
+        public static string SoundsUrl()
+        {
+            return Url.Combine(TaxonUtils.MyConfig.serverUrl, "sounds");
         }
 
         public static string FindSound(TaxonTreeNode taxon)
         {
-            string path = Path.Combine(SoundsDataPath(), taxon.Desc.RefMultiName.Main) + ".wma";
+            if (TaxonUtils.MyConfig.offline) return null;
 
+            string path = Path.Combine(SoundsDataPath(), taxon.Desc.RefMultiName.Main) + ".wma";
+            Console.WriteLine("path : " + path);
             if (! offline) {
                 using (WebClient client = new WebClient())
                 {
-                    client.DownloadFile(Url.Combine(soundsUrl, taxon.Desc.RefMultiName.Main), path);
+                    client.DownloadFile(Url.Combine(SoundsUrl(), taxon.Desc.RefMultiName.Main), path);
                 }
             }
 
@@ -83,15 +93,11 @@ namespace TreeOfLife
 
         public static string LocationPath(string taxonFileName)
         {
-            return Path.Combine(rootDirectory, "Datas", taxonFileName + "_location");
+            return Path.Combine(TaxonUtils.MyConfig.rootDirectory, "Datas", taxonFileName + "_location");
         }
 
         public static void SaveConfigAfterInitialization()
         {
-            TaxonUtils.MyConfig.offline = offline;
-            TaxonUtils.MyConfig.rootDirectory = rootDirectory;
-            TaxonUtils.MyConfig.dataInitialized = true;
-            TaxonUtils.MyConfig.serverUrl = serverUrl;
 
         }
     }

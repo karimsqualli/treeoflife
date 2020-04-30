@@ -20,6 +20,7 @@ namespace TreeOfLife
         public InitForm()
         {
             TopMost = true;
+            ControlBox = false;
 
             InitializeComponent();
         }
@@ -65,6 +66,11 @@ namespace TreeOfLife
         {
             quit = true;
             Close();
+        }
+
+        private void dataSettingsControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

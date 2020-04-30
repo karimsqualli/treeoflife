@@ -781,6 +781,15 @@ namespace TreeOfLife
             TaxonUtils.MainGraph.Root = root;
             TaxonUtils.MainGraph.ResetView();
         }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaxonDialog.SettingsForm dlg = new TaxonDialog.SettingsForm()
+            {
+                TopMost = true
+            };
+            dlg.ShowDialog();
+        }
     }
 }
 

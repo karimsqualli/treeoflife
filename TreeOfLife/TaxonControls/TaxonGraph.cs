@@ -425,7 +425,7 @@ namespace TreeOfLife
                 e.Handled = true;
                 if (FinderTextBox.Text.Length > 2)
                     TaxonSearchAsync.Search(_Root, FinderTextBox.Text);
-                if (TaxonSearchResultForm.TaxonListBox.Items.Count > 0)
+                if (TaxonSearchResultForm != null && TaxonSearchResultForm.TaxonListBox.Items.Count > 0)
                 {
                     TaxonTreeNode taxon = TaxonSearchResultForm.TaxonListBox.GetAt(0);
                     if (taxon != null)

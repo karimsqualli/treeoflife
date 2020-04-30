@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TreeOfLife.Controls;
 
 namespace TreeOfLife.TaxonDialog
 {
@@ -14,8 +15,6 @@ namespace TreeOfLife.TaxonDialog
         public SettingsForm()
         {
             InitializeComponent();
-
-            button1.DialogResult = DialogResult.OK;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,13 +25,9 @@ namespace TreeOfLife.TaxonDialog
 
             if (success)
             {
-                TaxonUtils.MyConfig.offline = dataSettingsControl1.Offline;
-
-                if (dataSettingsControl1.Offline)
-                {
-                    TaxonUtils.initCollections();
-                }
-
+                TaxonUtils.initCollections();
+                TaxonUtils.OriginalRoot.UpdateAvailableImages();
+                TaxonControlList.OnAvailableImagesChanged();
                 Close();
             } else
             {

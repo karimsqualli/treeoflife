@@ -57,9 +57,23 @@
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enEnglishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graphtreeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ascendantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.favoritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.finderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.navigatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.debugInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.quizzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hangmanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,20 +82,7 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debuggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.graphtreeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ascendantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.favoritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.finderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.navigatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quizzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hangmanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +126,8 @@
             this.toolStripMenuItem1,
             this.createNewTreeToolStripMenuItem,
             this.fileSeparator1MenuItem,
-            this.importOpenTreeOToolStripMenuItem});
+            this.importOpenTreeOToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
@@ -332,20 +334,144 @@
             this.windowToolStripMenuItem.Text = "Window";
             this.windowToolStripMenuItem.DropDownOpening += new System.EventHandler(this.windowToolStripMenuItem_DropDownOpening);
             // 
+            // graphtreeToolStripMenuItem
+            // 
+            this.graphtreeToolStripMenuItem.Name = "graphtreeToolStripMenuItem";
+            this.graphtreeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.graphtreeToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.graphtreeToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonGraph);
+            this.graphtreeToolStripMenuItem.Text = "Graph";
+            this.graphtreeToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(231, 6);
+            // 
+            // ascendantsToolStripMenuItem
+            // 
+            this.ascendantsToolStripMenuItem.Name = "ascendantsToolStripMenuItem";
+            this.ascendantsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.ascendantsToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.ascendantsToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonAscendants);
+            this.ascendantsToolStripMenuItem.Text = "Ascendants";
+            this.ascendantsToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // favoritesToolStripMenuItem
+            // 
+            this.favoritesToolStripMenuItem.Name = "favoritesToolStripMenuItem";
+            this.favoritesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.F)));
+            this.favoritesToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.favoritesToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonFavorites);
+            this.favoritesToolStripMenuItem.Text = "Favorites";
+            this.favoritesToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // finderToolStripMenuItem
+            // 
+            this.finderToolStripMenuItem.Name = "finderToolStripMenuItem";
+            this.finderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.finderToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.finderToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonFinder);
+            this.finderToolStripMenuItem.Text = "Finder";
+            this.finderToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.historyToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonHistory);
+            this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // informationToolStripMenuItem
+            // 
+            this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
+            this.informationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.informationToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonInfo);
+            this.informationToolStripMenuItem.Text = "Information";
+            this.informationToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // navigatorToolStripMenuItem
+            // 
+            this.navigatorToolStripMenuItem.Name = "navigatorToolStripMenuItem";
+            this.navigatorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.navigatorToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.navigatorToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonNavigator);
+            this.navigatorToolStripMenuItem.Text = "Navigator";
+            this.navigatorToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // tagsToolStripMenuItem
+            // 
+            this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
+            this.tagsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.tagsToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonTags);
+            this.tagsToolStripMenuItem.Text = "Tags";
+            this.tagsToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(231, 6);
             // 
+            // debugInfoToolStripMenuItem
+            // 
+            this.debugInfoToolStripMenuItem.Name = "debugInfoToolStripMenuItem";
+            this.debugInfoToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.debugInfoToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonDebugInfo);
+            this.debugInfoToolStripMenuItem.Text = "Debug Info";
+            this.debugInfoToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.editToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonEditInfo);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.logToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonLog);
+            this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.optionsToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonOptions);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(231, 6);
+            // 
+            // quizzToolStripMenuItem
+            // 
+            this.quizzToolStripMenuItem.Name = "quizzToolStripMenuItem";
+            this.quizzToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.quizzToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonGameQuizz);
+            this.quizzToolStripMenuItem.Text = "Quizz";
+            this.quizzToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // hangmanToolStripMenuItem
+            // 
+            this.hangmanToolStripMenuItem.Name = "hangmanToolStripMenuItem";
+            this.hangmanToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.hangmanToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonGameHangman);
+            this.hangmanToolStripMenuItem.Text = "Hangman";
+            this.hangmanToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
             // 
             // databaseToolStripMenuItem
             // 
@@ -413,129 +539,12 @@
             this.panel1.Size = new System.Drawing.Size(1047, 661);
             this.panel1.TabIndex = 11;
             // 
-            // graphtreeToolStripMenuItem
+            // settingsToolStripMenuItem
             // 
-            this.graphtreeToolStripMenuItem.Name = "graphtreeToolStripMenuItem";
-            this.graphtreeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.graphtreeToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.graphtreeToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonGraph);
-            this.graphtreeToolStripMenuItem.Text = "Graph";
-            this.graphtreeToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // ascendantsToolStripMenuItem
-            // 
-            this.ascendantsToolStripMenuItem.Name = "ascendantsToolStripMenuItem";
-            this.ascendantsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.ascendantsToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.ascendantsToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonAscendants);
-            this.ascendantsToolStripMenuItem.Text = "Ascendants";
-            this.ascendantsToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // favoritesToolStripMenuItem
-            // 
-            this.favoritesToolStripMenuItem.Name = "favoritesToolStripMenuItem";
-            this.favoritesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.F)));
-            this.favoritesToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.favoritesToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonFavorites);
-            this.favoritesToolStripMenuItem.Text = "Favorites";
-            this.favoritesToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // finderToolStripMenuItem
-            // 
-            this.finderToolStripMenuItem.Name = "finderToolStripMenuItem";
-            this.finderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.finderToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.finderToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonFinder);
-            this.finderToolStripMenuItem.Text = "Finder";
-            this.finderToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.historyToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonHistory);
-            this.historyToolStripMenuItem.Text = "History";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // informationToolStripMenuItem
-            // 
-            this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.informationToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonInfo);
-            this.informationToolStripMenuItem.Text = "Information";
-            this.informationToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // navigatorToolStripMenuItem
-            // 
-            this.navigatorToolStripMenuItem.Name = "navigatorToolStripMenuItem";
-            this.navigatorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.navigatorToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.navigatorToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonNavigator);
-            this.navigatorToolStripMenuItem.Text = "Navigator";
-            this.navigatorToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // tagsToolStripMenuItem
-            // 
-            this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
-            this.tagsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.tagsToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonTags);
-            this.tagsToolStripMenuItem.Text = "Tags";
-            this.tagsToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // debugInfoToolStripMenuItem
-            // 
-            this.debugInfoToolStripMenuItem.Name = "debugInfoToolStripMenuItem";
-            this.debugInfoToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.debugInfoToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonDebugInfo);
-            this.debugInfoToolStripMenuItem.Text = "Debug Info";
-            this.debugInfoToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.editToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonEditInfo);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // logToolStripMenuItem
-            // 
-            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.logToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonLog);
-            this.logToolStripMenuItem.Text = "Log";
-            this.logToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.optionsToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonOptions);
-            this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // quizzToolStripMenuItem
-            // 
-            this.quizzToolStripMenuItem.Name = "quizzToolStripMenuItem";
-            this.quizzToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.quizzToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonGameQuizz);
-            this.quizzToolStripMenuItem.Text = "Quizz";
-            this.quizzToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
-            // hangmanToolStripMenuItem
-            // 
-            this.hangmanToolStripMenuItem.Name = "hangmanToolStripMenuItem";
-            this.hangmanToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.hangmanToolStripMenuItem.Tag = typeof(TreeOfLife.TaxonGameHangman);
-            this.hangmanToolStripMenuItem.Text = "Hangman";
-            this.hangmanToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(347, 26);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -616,6 +625,7 @@
         private System.Windows.Forms.ToolStripMenuItem createNewTreeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enEnglishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

@@ -32,7 +32,6 @@ namespace TreeOfLife.Controls
 
         private void offlineModeButton_CheckedChanged(object sender, EventArgs e)
         {
-            dataDirectoryTextBox.Enabled = true;
             selectDataDirectoryButton.Enabled = true;
             urlServerTextBox.Enabled = false;
         }
@@ -56,7 +55,7 @@ namespace TreeOfLife.Controls
 
         private bool downloadInitData()
         {
-            string appDataFolder = TOLData.appDataDirectory;
+            string appDataFolder = TOLData.AppDataDirectory();
             string serverUrl = urlServerTextBox.Text;
             string zipFilePath = Path.Combine(appDataFolder, "init.zip");
 
@@ -80,28 +79,28 @@ namespace TreeOfLife.Controls
             }
             else
             {
-                string soundsDataPath = TOLData.SoundsDataPath();
+                string soundsDataPath = Path.Combine(TOLData.AppDataDirectory(), "Datas", "Sounds");
                 if (Directory.Exists(soundsDataPath))
                 {
                     DirectoryInfo soundsDir = new DirectoryInfo(soundsDataPath);
                     soundsDir.Delete(true);
                 }
 
-                string imageDataPath = TOLData.ImageDataPath();
+                string imageDataPath = Path.Combine(TOLData.AppDataDirectory(), "Datas", "Images");
                 if (Directory.Exists(imageDataPath))
                 {
                     DirectoryInfo imagesDir = new DirectoryInfo(imageDataPath);
                     imagesDir.Delete(true);
                 }
 
-                string commentDataPath = TOLData.CommentDataPath();
+                string commentDataPath = Path.Combine(TOLData.AppDataDirectory(), "Datas", "Comments");
                 if (Directory.Exists(commentDataPath))
                 {
                     DirectoryInfo commentsDir = new DirectoryInfo(commentDataPath);
                     commentsDir.Delete(true);
                 }
 
-                string locationDataPath = TOLData.LocationPath(TaxonUtils.MyConfig.TaxonFileName);
+                string locationDataPath = Path.Combine(TOLData.AppDataDirectory(), "Datas", TaxonUtils.MyConfig.TaxonFileName + "_location");
                 if (Directory.Exists(locationDataPath))
                 {
                     DirectoryInfo locationDir = new DirectoryInfo(locationDataPath);
@@ -113,10 +112,10 @@ namespace TreeOfLife.Controls
             zip.ExtractAll(appDataFolder, ExtractExistingFileAction.OverwriteSilently);
 
             TOLData.offline = false;
-            TOLData.rootDirectory = TOLData.appDataDirectory;
-            TOLData.serverUrl = urlServerTextBox.Text;
-
-            TOLData.SaveConfigAfterInitialization();
+            TaxonUtils.MyConfig.rootDirectory = TOLData.AppDataDirectory();
+            TaxonUtils.MyConfig.serverUrl = urlServerTextBox.Text;
+            TaxonUtils.MyConfig.offline = false;
+            TaxonUtils.MyConfig.dataInitialized = true;
 
             return true;
         }
@@ -132,29 +131,31 @@ namespace TreeOfLife.Controls
 
             if (!Directory.Exists(Path.Combine(selectedFolder, "Datas", "Comments")))
             {
-                errorLabel.Text = "Folder does not contains 'Comments' subfolder";
+                errorLabel.Text = "Folder does not contains 'Datas\\Comments' subfolder";
 
                 return false;
             }
 
             if (!Directory.Exists(Path.Combine(selectedFolder, "Datas", "Images")))
             {
-                errorLabel.Text = "Folder does not contains 'Images' subfolder";
+                errorLabel.Text = "Folder does not contains 'Datas\\Images' subfolder";
 
                 return false;
             }
 
             if (!Directory.Exists(Path.Combine(selectedFolder, "Datas", "Sounds")))
             {
-                errorLabel.Text = "Folder does not contains 'Sounds' subfolder";
+                errorLabel.Text = "Folder does not contains 'Datas\\Sounds' subfolder";
 
                 return false;
             }
 
             TOLData.offline = true;
-            TOLData.rootDirectory = selectedFolder;
+            TaxonUtils.MyConfig.rootDirectory = selectedFolder;
 
-            TOLData.SaveConfigAfterInitialization();
+            TaxonUtils.MyConfig.offline = true;
+            TaxonUtils.MyConfig.dataInitialized = true;
+            TaxonUtils.MyConfig.serverUrl = "";
 
             return true;
         }

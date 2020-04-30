@@ -24,11 +24,11 @@ namespace TreeOfLife
         //
         static public string GetConfigFilePath() {
             //return "Config";
-            return Path.Combine(TOLData.appDataDirectory, "Config");
+            return Path.Combine(TOLData.AppDataDirectory(), "Config");
         }
         static public string GetConfigFileName(string _name) {
             //return "Config\\TreeOfLifeConfig_" + _name + ".xml"; 
-            return Path.Combine(TOLData.appDataDirectory, "Config", "TreeOfLifeConfig_" + _name + ".xml");
+            return Path.Combine(TOLData.AppDataDirectory(), "Config", "TreeOfLifeConfig_" + _name + ".xml");
         }
 
         public static Config MyConfig = null;
@@ -47,13 +47,15 @@ namespace TreeOfLife
         internal static bool CheckConnection()
         {
             string url = Url.Combine(MyConfig.serverUrl, "state");
-
+            Console.WriteLine("foo : " + MyConfig.serverUrl);
             try
             {
                 using (WebClient client = new WebClient())
                 {
                     JObject stateObject = Newtonsoft.Json.JsonConvert.DeserializeObject<JObject>(client.DownloadString(url));
                     string state = (string)stateObject["state"];
+
+                    Console.WriteLine("bar : " + state);
                     return state == "up";
                 }
             } catch (WebException e)

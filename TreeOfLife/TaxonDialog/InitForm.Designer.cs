@@ -41,7 +41,7 @@
             // 
             // validateButton
             // 
-            this.validateButton.Location = new System.Drawing.Point(193, 418);
+            this.validateButton.Location = new System.Drawing.Point(193, 425);
             this.validateButton.Name = "validateButton";
             this.validateButton.Size = new System.Drawing.Size(75, 23);
             this.validateButton.TabIndex = 6;
@@ -51,7 +51,7 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(303, 418);
+            this.quitButton.Location = new System.Drawing.Point(299, 425);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 5;
@@ -120,12 +120,13 @@
             this.dataSettingsControl1.Name = "dataSettingsControl1";
             this.dataSettingsControl1.Size = new System.Drawing.Size(566, 242);
             this.dataSettingsControl1.TabIndex = 8;
+            this.dataSettingsControl1.Load += new System.EventHandler(this.dataSettingsControl1_Load);
             // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 453);
+            this.ClientSize = new System.Drawing.Size(582, 485);
             this.Controls.Add(this.dataSettingsControl1);
             this.Controls.Add(this.treeGroupBox);
             this.Controls.Add(this.quitButton);
